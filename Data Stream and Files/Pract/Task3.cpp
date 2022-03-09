@@ -16,32 +16,15 @@ struct Relation
 	size_t size;
 };
 
-void createPair(Pair pair)
+void createPair(Pair& pair)
 {
 	cin >> pair.x >> pair.y;
 }
 
-void readPairFromFile(Pair pair, size_t size)
+void readPairFromFile(Relation& relation, int firstNum, int secondNum, size_t size)
 {
-	ifstream in;
-	in.open("relation.txt");
-
-	if (in.is_open())
-	{
-		int x, y;
-		int counter = 0;
-
-		while (in >> x >> y)
-		{
-			if (counter == size)
-			{
-				cout << x << " " << y;
-			}
-			counter++;
-		}
-	}
-
-	in.close();
+	relation.pairs[size].x = firstNum;
+	relation.pairs[size].y = secondNum;
 }
 
 void writePairToFile(Pair pair)
@@ -60,9 +43,8 @@ void addPairToRelation(Pair pair, Relation relation)
 	relation.pairs[relation.size++] = pair;
 }
 
-void writeRelationToFile()
+void writeRelationToFile(Relation relation)
 {
-	Relation relation;
 
 	for (int i = 0; i < relation.size; i++)
 	{
@@ -70,12 +52,27 @@ void writeRelationToFile()
 	}
 }
 
-void readRelationFromFile()
+Relation readRelationFromFile()
 {
-	Relation relation;
+	Relation newRelation;
 
-	for (int i = 0; i < relation.size; i++)
+	ifstream in;
+	in.open("relation.txt");
+
+	if (!in.is_open())
 	{
-		readPairFromFile(relation.pairs[i], i);
+		cout << "Error!" << endl;
+		return newRelation;
 	}
+
+	int x, y;
+	newRelation.size = 0;
+
+	while (in >> x >> y)
+	{
+		readPairFromFile(newRelation,x,y,newRelation.size);
+		newRelation.size++;
+	}
+
+	return newRelation;
 }
