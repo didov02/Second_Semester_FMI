@@ -24,6 +24,8 @@ int main()
 		file.getline(buffer, MAX_SIZE);
 		cout << buffer << endl;
 	}
+	
+	file.close();
 
 	return 0;
 }
