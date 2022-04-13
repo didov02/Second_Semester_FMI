@@ -1,0 +1,12 @@
+﻿  Nvector.cpp
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(7,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(28,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(61,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(76,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(92,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(117,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(132,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(152,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Nvector\Nvector.cpp(162,20): warning C4018: '<': signed/unsigned mismatch
+  Nvector.vcxproj -> C:\Users\Dido\Desktop\СУ\c++\практикум\Sem.07\Nvector\Debug\Nvector.exe

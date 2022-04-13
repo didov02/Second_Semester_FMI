@@ -1,0 +1,14 @@
+﻿  Date.cpp
+  Day.cpp
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Day.cpp(142,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Day.cpp(200,34): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Day.cpp(236,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Day.cpp(246,21): warning C4018: '<': signed/unsigned mismatch
+  Functions.cpp
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Functions.cpp(33,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Functions.cpp(53,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Functions.cpp(80,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Functions.cpp(90,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Date\Functions.cpp(95,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Date.vcxproj -> C:\Users\Dido\Desktop\СУ\c++\практикум\Date\Debug\Date.exe
