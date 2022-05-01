@@ -1,0 +1,10 @@
+﻿  OOPcourse.cpp
+  Student.cpp
+  Generating Code...
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(9): error C4716: 'OOPcourse::getStudentByFn': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(56): error C4716: 'OOPcourse::getAvarageFromCourse': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(46): error C4716: 'OOPcourse::addGrade': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(51): error C4716: 'OOPcourse::editGrade': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(41): error C4716: 'OOPcourse::removeStudent': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(61): error C4716: 'OOPcourse::getAvaragePerTask': must return a value
+C:\Users\Dido\Desktop\GitHub\Second_Semester_FMI\Practicum\Sem.08\FacultyCourse\FacultyCourse\OOPcourse.cpp(66): error C4716: 'OOPcourse::getAvarageFromTeacher': must return a value
