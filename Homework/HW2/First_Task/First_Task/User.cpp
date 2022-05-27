@@ -1,7 +1,10 @@
 #include "User.h"
 #include <cstring>
+#include <iostream>
 
 #pragma warning (disable : 4996)
+
+const int MAX_BUFF = 1024;
 
 void CopyBooks(Book* readBooks1, Book* readBooks2, size_t size)
 {
@@ -47,6 +50,9 @@ User::User()
 
 	writenBooks = nullptr;
 	writenBooksCount = 0;
+
+	readBookCapacity = 0;
+	writenBooksCapacity = 0;
 }
 
 User::User(char* username, char* password, Book* readBooks, size_t readBooksCount, Book* writenBooks, size_t writenBooksCount)
@@ -88,6 +94,16 @@ User::~User()
 	free();
 }
 
+size_t User::resize(size_t checkingNum)
+{
+	size_t resizingNum = 4;
+
+	while (resizingNum < checkingNum)
+		resizingNum *= 2;
+
+	return resizingNum;
+}
+
 void User::setUsername(char* username)
 {
 	delete[] this->username;
@@ -107,47 +123,217 @@ void User::setReadBooksCount(size_t newCount)
 	readBooksCount = newCount;
 }
 
+void User::setReadBooks(Book* other)
+{
+	this->readBooks = other;
+}
+
+void User::setWritenBooks(Book* other)
+{
+	this->writenBooks = other;
+}
+
 void User::setWritenBooksCount(size_t newCount)
 {
 	writenBooksCount = newCount;
 }
 
-bool User::readBook(char* bookName)
+void User::readBook(const Book& book)
 {
-	
+	if (readBooksCount + 1 > readBookCapacity)
+	{
+		readBookCapacity = resize(readBooksCount);
+		Book* temp = new Book[readBooksCount];
+		for (int i = 0; i < readBooksCount; i++)
+		{
+			temp[i] = readBooks[i];
+		}
+
+		delete[] readBooks;
+		readBooks = new Book[readBookCapacity];
+		readBooks = temp;
+	}
+
+	Book* pointer = new Book[readBooksCount+1];
+	for (size_t i = 0; i < readBooksCount; i++)
+	{
+		pointer[i] = readBooks[i];
+	}
+
+	pointer[readBooksCount++] = book;
+
+	delete[] readBooks;
+	readBooks = new Book[readBooksCount];
+	readBooks = pointer;
 }
 
-void User::writeBook(char* bookName, int pagesCount)
+void User::writeBook(char* bookName, char* authorName, size_t pagesCount, Page* pages)
 {
+	if (writenBooksCount + 1 > writenBooksCapacity)
+	{
+		writenBooksCapacity = resize(writenBooksCount);
+		Book* temp = new Book[writenBooksCount];
+		for (int i = 0; i < writenBooksCount; i++)
+		{
+			temp[i] = writenBooks[i];
+		}
+
+		delete[] writenBooks;
+		writenBooks = new Book[writenBooksCapacity];
+		writenBooks = temp;
+	}
+
+	Book* pointer = new Book[writenBooksCount];
+	for (size_t i = 0; i < writenBooksCount; i++)
+	{
+		pointer[i] = writenBooks[i];
+	}
+
+	writenBooksCount++;
+	pointer[writenBooksCount].setBookName(bookName);
+	pointer[writenBooksCount].setAuthorName(authorName);
+	pointer[writenBooksCount].setPagesCount(pagesCount);
+	pointer[writenBooksCount].setPages(pages);
+	pointer[writenBooksCount].setCommentsCount(0);
+	pointer[writenBooksCount].setComments(nullptr);
+	pointer[writenBooksCount].setRatingsCount(0);
+	pointer[writenBooksCount].setRatings(nullptr);
+
+	delete[] writenBooks;
+	writenBooks = new Book[writenBooksCount];
+
+	writenBooks = pointer;
 
 }
 
-void User::getPage() const
+bool User::isBookRead(const char* name) const
 {
+	for (int i = 0; i < readBooksCount; i++)
+	{
+		if (strcmp(readBooks[i].getBookName(), name))
+		{
+			return true;
+		}
+	}
 
+	return false;
 }
 
-void User::leaveComment() const
+void User::getPage(const Book& wantedBook, size_t pageNum) const
 {
+	if (!isBookRead(wantedBook.getBookName()))
+	{
+		std::cout << "This book hasn't been read!" << std::endl;
+		
+	}
+	else
+	{
+		char* buffer = new char[MAX_BUFF];
+		strcpy(buffer, wantedBook.getPage(pageNum).getPageContent());
 
+		std::cout << buffer << std::endl;
+
+		delete[] buffer;
+
+	}
 }
 
-void User::readComments() const
+void User::leaveComment(Book& wantedBook, Comment comment) const
 {
-
+	if (!isBookRead(wantedBook.getBookName()))
+	{
+		std::cout << "This book hasn't been read!" << std::endl;
+	}
+	else
+	{
+		wantedBook.setComment(comment);
+	}
 }
 
-void User::changeWritenBook(char* bookName)
+void User::readComments(const Book& wantedBook) const
 {
-
+	if (!isBookRead(wantedBook.getBookName()))
+		std::cout << "This book hasn't been read!" << std::endl;
+	else
+	{
+		wantedBook.printComments();
+	}
 }
 
-void User::rateBook(char* bookName, size_t rating)
+void User::rateBook(Book& wantedBook, size_t rating)
 {
-
+	if (!isBookRead(wantedBook.getBookName()))
+		std::cout << "This book hasn't been read!" << std::endl;
+	else
+	{
+		for (int i = 0; i < readBooksCount; i++)
+		{
+			if (strcmp(readBooks[i].getBookName(), wantedBook.getBookName()))
+			{
+				Rating currentRating;
+				currentRating.setRating(rating);
+				currentRating.setName(this->username);
+				readBooks[i].setRating(currentRating);
+			}
+		}
+	}
 }
 
-void User::changeRating(char* bookName, size_t newRating)
+void User::changeRating(Book& wantedBook, size_t newRating)
 {
+	if (!isBookRead(wantedBook.getBookName()))
+		std::cout << "This book hasn't been read!" << std::endl;
+	else
+	{
+		for (int i = 0; i < readBooksCount; i++)
+		{
+			if (strcmp(readBooks[i].getBookName(), wantedBook.getBookName()))
+			{
+				Rating* rating = wantedBook.getRatings();
+				for (int j = 0; j < wantedBook.getRatingsCount(); j++)
+				{
+					if (strcmp(rating[j].getPersonsName(), this->username))
+					{
+						rating[j].setRating(newRating);
+					}
+				}
+			}
+		}
+	}
+}
 
+char* User::getName() const
+{
+	return username;
+}
+
+const char* User::getPassword() const
+{
+	return password;
+}
+
+void User::addWritenBook(char* bookName, char* authorName, Rating* ratings, size_t ratingsCount, size_t pagesCount, size_t commentsCount,
+	Page* pages, Comment* comments, size_t count)
+{
+	writenBooks[count].setBookName(bookName);
+	writenBooks[count].setAuthorName(authorName);
+	writenBooks[count].setRatings(ratings);
+	writenBooks[count].setRatingsCount(ratingsCount);
+	writenBooks[count].setPagesCount(pagesCount);
+	writenBooks[count].setCommentsCount(commentsCount);
+	writenBooks[count].setPages(pages);
+	writenBooks[count].setComments(comments);
+}
+
+void User::addReadBook(char* bookName, char* authorName, Rating* ratings, size_t ratingsCount, size_t pagesCount, size_t commentsCount,
+	Page* pages, Comment* comments, size_t count)
+{
+	readBooks[count].setBookName(bookName);
+	readBooks[count].setAuthorName(authorName);
+	readBooks[count].setRatings(ratings);
+	readBooks[count].setRatingsCount(ratingsCount);
+	readBooks[count].setPagesCount(pagesCount);
+	readBooks[count].setCommentsCount(commentsCount);
+	readBooks[count].setPages(pages);
+	readBooks[count].setComments(comments);
 }

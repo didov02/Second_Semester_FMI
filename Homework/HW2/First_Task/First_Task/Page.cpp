@@ -1,7 +1,4 @@
 #include "Page.h"
-#include <cstring>
-
-#pragma warning (disable : 4996)
 
 void Page::copy(const Page& other)
 {
@@ -25,10 +22,10 @@ Page::Page()
 
 Page::Page(size_t otherPage, char* content)
 {
-	page = otherPage;
+	this->page = otherPage;
 
-	content = new char[1];
-	content[0] = '\0';
+	this->content = new char[strlen(content) + 1];
+	strcpy(this->content, content);
 }
 
 Page::Page(const Page& other)
@@ -50,4 +47,26 @@ Page& Page::operator=(const Page& other)
 Page::~Page()
 {
 	free();
+}
+
+const char* Page::getPageContent() const
+{
+	return content;
+}
+
+size_t Page::getPage() const
+{
+	return page;
+}
+
+void Page::setPage(size_t page)
+{
+	this->page = page;
+}
+
+void Page::setContent(char* content)
+{
+	delete[] this->content;
+	this->content = new char[strlen(content) + 1];
+	strcpy(this->content, content);
 }
