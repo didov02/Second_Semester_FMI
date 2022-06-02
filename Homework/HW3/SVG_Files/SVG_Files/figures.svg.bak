@@ -1,0 +1,9 @@
+<svg>
+<rect x="5" y="5" width="10" length="10" fill="green" />
+<circle cx="5" cy="5" r="10" fill="blue" />
+<rect x="1e+45" y="0" width="10" length="10" fill="red" />
+<line x1="1" y1="2" x2="3" y2="4" fill="yellow" />
+<circle cx="1" cy="23" r="4" fill="black" />
+<line x1="1" y1="2" x2="3" y2="4" fill="black" />
+<rect x="1" y="23" width="4" length="55" fill="green" />
+</svg>
