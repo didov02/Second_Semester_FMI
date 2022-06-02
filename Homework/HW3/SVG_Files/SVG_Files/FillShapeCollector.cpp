@@ -89,62 +89,6 @@ void Fill(ShapeCollector& collect)
 	size_t buffSize = strlen(buff);
 	for (int i = 0; i < buffSize; i++)
 	{
-		//if (buff[i] == 'r')//rectangle
-		//{
-		//	
-		//	i += 8;//because we want to skip rect x=
-		//	double x = GetNum(i, buff);
-		//	i += 6;
-		//	double y = GetNum(i, buff);
-		//	i += 10;
-		//	double width = GetNum(i, buff);
-		//	i += 12;
-		//	double height = GetNum(i, buff);
-		//	i += 10;
-		//	char* fill = new char[MAX_COMMAND];
-		//	GetText(i, buff, fill);
-		//	i += 6;
-		//	collect.createRectangle(fill, x, y, width, height);
-
-		//	delete[] fill;
-		//}
-		//else if (buff[i] == 'c')//cycle
-		//{
-		//	i += 11;
-		//	double cx = GetNum(i, buff);
-		//	i += 7;
-		//	double cy = GetNum(i, buff);
-		//	i += 6;
-		//	double r = GetNum(i, buff);
-		//	i += 10;
-		//	char* fill = new char[MAX_COMMAND];
-		//	GetText(i, buff, fill);
-		//	i += 5;
-
-		//	collect.createCircle(fill, r, cx, cy);
-
-		//	delete[] fill;
-		//}
-		//else if (buff[i] == 'l')//line
-		//{
-		//	i += 9;
-		//	double x1 = GetNum(i, buff);
-		//	i += 7;
-		//	double y1 = GetNum(i, buff);
-		//	i += 7;
-		//	double x2 = GetNum(i, buff);
-		//	i += 7;
-		//	double y2 = GetNum(i, buff);
-		//	i += 9;
-		//	char* fill = new char[MAX_COMMAND];
-		//	GetText(i, buff, fill);
-		//	i += 7;
-
-		//	collect.createLine(fill, x1, y1, x2, y2);
-
-		//	delete[] fill;
-		//}
-
 		if (buff[i] == '<' && buff[i+1] != 's')
 		{
 			i++;
