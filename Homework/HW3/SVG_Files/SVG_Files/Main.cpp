@@ -156,7 +156,7 @@ int main()
 			else 
 			{
 				size_t index = figure[NULL] - PARSE;
-				collect.translateFigure(index, vertical, horizontal);
+				collect.translateFigure(index-1, vertical, horizontal);
 			}
 
 			delete[] figure;
@@ -237,6 +237,10 @@ int main()
 			std::cout << "Have a nice day! Goodbye!" << std::endl;
 			delete[] command;
 			break;
+		}
+		else
+		{
+			std::cout << "There isn't such choice. Try again!" << std::endl;
 		}
 
 		delete[] command;

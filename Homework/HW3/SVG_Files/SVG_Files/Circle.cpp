@@ -38,6 +38,15 @@ double Circle::getPer() const
 	return 2 * PI * r;
 }
 
+void Circle::print() const
+{
+	std::cout << "Figure: Circle" << std::endl;
+	std::cout << "CX= " << this->getPoint(NULL).getX() << std::endl;
+	std::cout << "CY= " << this->getPoint(NULL).getY() << std::endl;
+	std::cout << "R= " << this->getR() << std::endl;
+	std::cout << "Fill: " << this->getColor() << std::endl;
+}
+
 bool Circle::isPointIn(double x, double y) const
 {
 	Point p(x, y);

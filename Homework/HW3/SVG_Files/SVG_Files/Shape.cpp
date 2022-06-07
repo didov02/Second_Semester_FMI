@@ -67,6 +67,14 @@ const char* Shape::getColor() const
 	return color;
 }
 
+void Shape::translate(double vertical, double horizontal)
+{
+	for (int i = 0; i < pointsCount; i++)
+	{
+		points[i].translatePoint(vertical, horizontal);
+	}
+}
+
 void Shape::copy(const Shape& other)
 {
 	color = new char[strlen(other.color) + 1];

@@ -18,6 +18,7 @@ public:
 
 	double getArea() const override;
 	double getPer() const override;
+	void print() const override;
 	bool isPointIn(double x, double y) const override;
 
 	Type getType() const override;

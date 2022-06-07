@@ -61,12 +61,21 @@ double Rectangle::getPer() const
 
 	return 2 * (firstPoint.getDist(secondPoint) + firstPoint.getDist(fourthPoint));
 }
+
+void Rectangle::print() const
+{
+	std::cout << "Figure: Rectangle" << std::endl;
+	std::cout << "X= " << this->getPoint(NULL).getX() << std::endl;
+	std::cout << "Y= " << this->getPoint(NULL).getY() << std::endl;
+	std::cout << "Width= " << this->getWidth() << std::endl;
+	std::cout << "Height= " << this->getHeight() << std::endl;
+	std::cout << "Fill: " << this->getColor() << std::endl;
+}
+
 bool Rectangle::isPointIn(double x, double y) const
 {
-	Point p(x, y);
-
-	return (p.getX() >= getPoint(NULL).getX() && p.getY() >= getPoint(ONE).getX() &&
-		p.getX() <= getPoint(ONE).getY() && p.getY() >= getPoint(TWO).getY());
+	return (x >= getPoint(NULL).getX() && y >= getPoint(ONE).getX() &&
+		x <= getPoint(TWO).getY() && y <= getPoint(TWO).getY());
 }
 
 Type Rectangle::getType() const

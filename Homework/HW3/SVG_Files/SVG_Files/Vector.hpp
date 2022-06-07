@@ -1,5 +1,4 @@
 #pragma once
-#include <utility>
 
 const size_t DEFAULT_CAPACITY = 4;
 
@@ -53,7 +52,7 @@ Vector<T>::Vector(const Vector<T>& other) {
 
 template <typename T>
 Vector<T>::Vector(Vector<T>&& other) {
-	move(std::move(other));
+	move(move(other));
 }
 
 template <typename T>
@@ -72,7 +71,7 @@ Vector<T>& Vector<T>::operator=(Vector<T>&& other) {
 	if (this != &other)
 	{
 		free();
-		move(std::move(other));
+		move(move(other));
 	}
 
 	return *this;
@@ -186,9 +185,9 @@ void Vector<T>::clear() {
 
 template <typename T>
 void Vector<T>::swap(const Vector<T>& other) {
-	Vector<T> tempVector(std::move(*this));
-	*this = std::move(other);
-	other = std::move(tempVector);
+	Vector<T> tempVector(move(*this));
+	*this = move(other);
+	other = move(tempVector);
 }
 
 template <typename T>

@@ -7,38 +7,6 @@ void ClearSyncIgnore()
 	std::cin.ignore();
 }
 
-void ShapeCollector::print(size_t index) const
-{
-	if (list[index]->getType() == RECTANGLE)
-	{
-		Rectangle* temp = (Rectangle*)list[index];
-		std::cout << "Figure: Rectangle" << std::endl;
-		std::cout << "X= " << temp->getPoint(NULL).getX() << std::endl;
-		std::cout<<"Y= "<< temp->getPoint(NULL).getY() << std::endl;
-		std::cout << "Width= " << temp->getWidth() << std::endl;
-		std::cout << "Height= " << temp->getHeight() << std::endl;
-		std::cout << "Fill: " << temp->getColor() << std::endl;
-	}
-	else if (list[index]->getType() == CIRCLE)
-	{
-		Circle* temp = (Circle*)list[index];
-		std::cout << "Figure: Circle" << std::endl;
-		std::cout << "CX= " << temp->getPoint(NULL).getX() << std::endl;
-		std::cout << "CY= " << temp->getPoint(NULL).getY() << std::endl;
-		std::cout << "R= " << temp->getR() << std::endl;
-		std::cout << "Fill: " << temp->getColor() << std::endl;
-	}
-	else if (list[index]->getType() == LINE)
-	{
-		std::cout << "Figure: Line" << std::endl;
-		std::cout << "X1= " << list[index]->getPoint(NULL).getX() << std::endl;
-		std::cout << "Y1= " << list[index]->getPoint(NULL).getY() << std::endl;
-		std::cout << "X2= " << list[index]->getPoint(ONE).getX() << std::endl;
-		std::cout << "Y2= " << list[index]->getPoint(ONE).getY() << std::endl;
-		std::cout << "Fill: " << list[index]->getColor() << std::endl;	
-	}
-}
-
 void ShapeCollector::copy(const ShapeCollector& other)
 {
 	size_t size = other.list.getSize();
@@ -89,7 +57,7 @@ void ShapeCollector::print() const
 {
 	for (int i = 0; i < list.getSize(); i++)
 	{
-		print(i);
+		list[i]->print();
 	}
 }
 
@@ -125,23 +93,7 @@ void ShapeCollector::translateAllFigures(double vertical, double horizontal)
 {
 	for (int i = 0; i < list.getSize(); i++)
 	{
-		if (list[i]->getType() == CIRCLE)
-		{
-			list[i]->getPoint(NULL).translatePoint(vertical, horizontal);
-		}
-		else if (list[i]->getType() == RECTANGLE)
-		{
-			list[i]->getPoint(NULL).translatePoint(vertical, horizontal);
-			list[i]->getPoint(ONE).translatePoint(vertical, horizontal);
-			list[i]->getPoint(TWO).translatePoint(vertical, horizontal);
-			list[i]->getPoint(THREE).translatePoint(vertical, horizontal);
-			
-		}
-		else if (list[i]->getType() == LINE)
-		{
-			list[i]->getPoint(NULL).translatePoint(vertical, horizontal);
-			list[i]->getPoint(ONE).translatePoint(vertical, horizontal);
-		}
+		list[i]->translate(vertical, horizontal);
 	}
 }
 
@@ -149,24 +101,8 @@ bool ShapeCollector::translateFigure(size_t index, double vertical, double horiz
 {
 	if (index >= list.getSize())
 		throw "No such figure!";
-
-	if (list[index]->getType() == CIRCLE)
-	{
-		list[index]->getPoint(NULL).translatePoint(vertical, horizontal);
-	}
-	else if (list[index]->getType() == RECTANGLE)
-	{
-		list[index]->getPoint(NULL).translatePoint(vertical, horizontal);
-		list[index]->getPoint(ONE).translatePoint(vertical, horizontal);
-		list[index]->getPoint(TWO).translatePoint(vertical, horizontal);
-		list[index]->getPoint(THREE).translatePoint(vertical, horizontal);
-
-	}
-	else if (list[index]->getType() == LINE)
-	{
-		list[index]->getPoint(NULL).translatePoint(vertical, horizontal);
-		list[index]->getPoint(ONE).translatePoint(vertical, horizontal);
-	}
+	
+	list[index]->translate(vertical, horizontal);
 }
 
 void ShapeCollector::withinRectangle(double x, double y, double width, double height) const
@@ -185,36 +121,29 @@ void ShapeCollector::withinRectangle(double x, double y, double width, double he
 				check->isPointIn(center.getX() + temp->getR(), center.getY()) &&
 				check->isPointIn(center.getX() - temp->getR(), center.getY()))
 			{
-				print(i);
+				list[i]->print();
 			}
 		}
 		else if (list[i]->getType() == RECTANGLE)
 		{
-			Point null = list[i]->getPoint(NULL);
-			Point one = list[i]->getPoint(ONE);
-			Point two = list[i]->getPoint(TWO);
-			Point three = list[i]->getPoint(THREE);
-			if (check->isPointIn(null.getX(), null.getY()) &&
-				check->isPointIn(one.getX(), one.getY()) &&
-				check->isPointIn(two.getX(), two.getY()) &&
-				check->isPointIn(three.getX(), three.getY()))
+			if (check->isPointIn(list[i]->getPoint(NULL).getX(), list[i]->getPoint(NULL).getY()) &&
+				check->isPointIn(list[i]->getPoint(ONE).getX(), list[i]->getPoint(ONE).getY()) &&
+				check->isPointIn(list[i]->getPoint(TWO).getX(), list[i]->getPoint(TWO).getY()) &&
+				check->isPointIn(list[i]->getPoint(THREE).getX(), list[i]->getPoint(THREE).getY()))
 			{
-				print(i);
+				list[i]->print();
 			}
 		}
 		else if (list[i]->getType() == LINE)
 		{
-			Point null = list[i]->getPoint(NULL);
-			Point one = list[i]->getPoint(ONE);
-
-			if (check->isPointIn(null.getX(), null.getY()) &&
-				check->isPointIn(one.getX(), one.getY()))
+			if (check->isPointIn(list[i]->getPoint(NULL).getX(), list[i]->getPoint(NULL).getY()) &&
+				check->isPointIn(list[i]->getPoint(ONE).getX(), list[i]->getPoint(ONE).getY()))
 			{
-				std::cout << "Figure: " << list[i]->getType() << std::endl;
+				std::cout << "Figure: Line"<< std::endl;
 
-				Point newPoint(one.getX(), null.getY());
-				double dist1 = newPoint.getDist(null);
-				double dist2 = newPoint.getDist(one);
+				Point newPoint(list[i]->getPoint(NULL).getX(), list[i]->getPoint(NULL).getY());
+				double dist1 = newPoint.getDist(list[i]->getPoint(NULL));
+				double dist2 = newPoint.getDist(list[i]->getPoint(ONE));
 				double length = sqrt(dist1 * dist1 + dist2 * dist2);
 
 				std::cout << "Length: " << length << std::endl;
@@ -234,41 +163,34 @@ void ShapeCollector::withinCircle(double r, double cx, double cy) const
 			Circle* temp = (Circle*)list[i];
 			Point center = list[i]->getPoint(NULL);
 
-			if (check->isPointIn(center.getX(), center.getX()) &&
-				check->isPointIn(center.getX(), center.getY() - temp->getR()) &&
-				check->isPointIn(center.getX() + temp->getR(), center.getY()) &&
-				check->isPointIn(center.getX() - temp->getR(), center.getY()))
+			double dist = sqrt((list[i]->getPoint(NULL).getX() - cx) * (list[i]->getPoint(NULL).getX() - cx) +
+				(list[i]->getPoint(NULL).getY() - cy) * (list[i]->getPoint(NULL).getY() - cy));
+
+			if (temp->getR()>=dist+r)
 			{
-				print(i);
+				list[i]->print();
 			}
 		}
 		else if (list[i]->getType() == RECTANGLE)
 		{
-			Point null = list[i]->getPoint(NULL);
-			Point one = list[i]->getPoint(ONE);
-			Point two = list[i]->getPoint(TWO);
-			Point three = list[i]->getPoint(THREE);
-			if (check->isPointIn(null.getX(), null.getY()) &&
-				check->isPointIn(one.getX(), one.getY()) &&
-				check->isPointIn(two.getX(), two.getY()) &&
-				check->isPointIn(three.getX(), three.getY()))
+			if (check->isPointIn(list[i]->getPoint(NULL).getX(), list[i]->getPoint(NULL).getY()) &&
+				check->isPointIn(list[i]->getPoint(ONE).getX(), list[i]->getPoint(ONE).getY()) &&
+				check->isPointIn(list[i]->getPoint(TWO).getX(), list[i]->getPoint(TWO).getY()) &&
+				check->isPointIn(list[i]->getPoint(THREE).getX(), list[i]->getPoint(THREE).getY()))
 			{
-				print(i);
+				list[i]->print();
 			}
 		}
 		else if (list[i]->getType() == LINE)
 		{
-			Point null = list[i]->getPoint(NULL);
-			Point one = list[i]->getPoint(ONE);
-
-			if (check->isPointIn(null.getX(), null.getY()) &&
-				check->isPointIn(one.getX(), one.getY()))
+			if (check->isPointIn(list[i]->getPoint(NULL).getX(), list[i]->getPoint(NULL).getY()) &&
+				check->isPointIn(list[i]->getPoint(ONE).getX(), list[i]->getPoint(ONE).getY()))
 			{
-				std::cout << "Figure: " << list[i]->getType() << std::endl;
+				std::cout << "Figure: Line" << std::endl;
 
-				Point newPoint(one.getX(), null.getY());
-				double dist1 = newPoint.getDist(null);
-				double dist2 = newPoint.getDist(one);
+				Point newPoint(list[i]->getPoint(ONE).getX(), list[i]->getPoint(NULL).getY());
+				double dist1 = newPoint.getDist(list[i]->getPoint(NULL));
+				double dist2 = newPoint.getDist(list[i]->getPoint(ONE));
 				double length = sqrt(dist1 * dist1 + dist2 * dist2);
 
 				std::cout << "Length: " << length << std::endl;
@@ -286,18 +208,15 @@ void ShapeCollector::pointIn(double x, double y)
 		{
 			if (list[i]->getType() == RECTANGLE || list[i]->getType() == CIRCLE)
 			{
-				print(i);
+				list[i]->print();
 			}
 			else
 			{
-				Point null = list[i]->getPoint(NULL);
-				Point one = list[i]->getPoint(ONE);
+				std::cout << "Figure: Line" << std::endl;
 
-				std::cout << "Figure: " << list[i]->getType() << std::endl;
-
-				Point newPoint(one.getX(), null.getY());
-				double dist1 = newPoint.getDist(null);
-				double dist2 = newPoint.getDist(one);
+				Point newPoint(list[i]->getPoint(ONE).getX(), list[i]->getPoint(NULL).getY());
+				double dist1 = newPoint.getDist(list[i]->getPoint(NULL));
+				double dist2 = newPoint.getDist(list[i]->getPoint(ONE));
 				double length = sqrt(dist1 * dist1 + dist2 * dist2);
 
 				std::cout << "Length: " << length << std::endl;

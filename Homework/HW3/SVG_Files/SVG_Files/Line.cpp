@@ -28,8 +28,19 @@ double Line::getPer() const
 	return 0;
 }
 
+void Line::print() const
+{
+	std::cout << "Figure: Line" << std::endl;
+	std::cout << "X1= " << this->getPoint(NULL).getX() << std::endl;
+	std::cout << "Y1= " << this->getPoint(NULL).getY() << std::endl;
+	std::cout << "X2= " << this->getPoint(ONE).getX() << std::endl;
+	std::cout << "Y2= " << this->getPoint(ONE).getY() << std::endl;
+	std::cout << "Fill: " << this->getColor() << std::endl;
+}
+
 bool Line::isPointIn(double x, double y) const//actually is point on
 {
+	//matrix
 	double temp1 = x * getPoint(NULL).getY() * ONE + getPoint(NULL).getX() * getPoint(ONE).getY() * ONE +
 		y * ONE * getPoint(ONE).getX();
 

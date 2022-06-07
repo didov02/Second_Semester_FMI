@@ -35,6 +35,5 @@ public:
 private:
 	void copy(const ShapeCollector&);
 	void free();
-	void print(size_t) const;
 };
 

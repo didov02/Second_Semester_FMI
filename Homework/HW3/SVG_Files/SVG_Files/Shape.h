@@ -38,11 +38,13 @@ public:
 
 	Point getPoint(size_t) const;
 	const char* getColor() const;
+	void translate(double, double);
 
 	virtual Shape* clone() const = 0;
 
 	virtual double getArea() const = 0;
 	virtual double getPer() const = 0;
+	virtual void print() const = 0;
 	virtual bool isPointIn(double x, double y) const = 0;
 	virtual Type getType() const = 0;
 private:
