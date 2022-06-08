@@ -2,7 +2,9 @@
 
 Vehicle::Vehicle()
 {
-
+	maxPassengers = 0;
+	maxSpeed = 0;
+	year = 0;
 }
 
 Vehicle::Vehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year)

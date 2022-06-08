@@ -12,7 +12,7 @@ public:
 		MyString brand, size_t capacity);
 
 	Vehicle* clone() const override;
-	Type getType() const override;
+	GroundType getType() const override;
 	void display() const override;
 
 	void setBrand(const MyString&);

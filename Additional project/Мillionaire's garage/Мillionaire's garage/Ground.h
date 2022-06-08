@@ -1,9 +1,7 @@
 #pragma once
-#include <iostream>
-#include "MyString.h"
 #include "Vehicle.h"
 
-enum Type
+enum GroundType
 {
 	CAR,
 	MOTORCYCLE,
@@ -14,21 +12,19 @@ enum Type
 class Ground : public Vehicle
 {
 protected:
-	Type t;
+	GroundType t;
 private:
 	MyString color;
 	size_t doorsCount;
 public:
 	Ground();
-	Ground(int, int , const MyString& , VehicleType, int, MyString, size_t);
+	Ground(int, int, const MyString&, VehicleType, int, const MyString&, size_t);
 
 	void setColor(const MyString&);
-
 	const MyString& getColor() const;
 
 	virtual Vehicle* clone() const = 0;
-	virtual Type getType() const = 0;
-
+	virtual GroundType getType() const = 0;
 	virtual void display() const = 0;
 };
 

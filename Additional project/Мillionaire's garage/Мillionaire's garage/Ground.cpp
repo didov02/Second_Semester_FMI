@@ -1,15 +1,14 @@
 #include "Ground.h"
+#include <iostream>
 
 
 Ground::Ground() : Vehicle()
 {
-	color = nullptr;
 	doorsCount = 0;
-
-	t = UNKNOWN;
+	t = GroundType::UNKNOWN;
 }
 
-Ground::Ground(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount) : 
+Ground::Ground(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount) : 
 	Vehicle(maxPassengers,maxSpeed,name,type,year)
 {
 	this->color = color;

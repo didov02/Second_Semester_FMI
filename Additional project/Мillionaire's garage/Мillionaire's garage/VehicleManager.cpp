@@ -50,23 +50,39 @@ void VehicleManager::print() const
 	}
 }
 
-void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
-	MyString brand, MyString model, MyString fuelType)
+void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	const MyString& brand, const MyString& model, const MyString& fuelType)
 {
 	Car temp(maxPassengers, maxSpeed, name, type, year, color, doorsCount, brand, model, fuelType);
 	list.pushBack(temp.clone());
 }
 
-void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
-	MyString brand, size_t capacity)
+void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	const MyString& brand, size_t capacity)
 {
 
 }
 
-void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
-	MyString brand, MyString model, MyString frameType)
+void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	const MyString& brand, const MyString& model, const MyString& frameType)
 {
 
+}
+
+void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime)
+{
+}
+
+void VehicleManager::createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom)
+{
+}
+
+void VehicleManager::createJacht(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width, int crewSize, const MyString& color, const MyString& model, bool hasSwimmingPool, int roomCount)
+{
+}
+
+void VehicleManager::createSail(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width, int crewSize, const MyString& color, const MyString& model, bool hasEngine, int sailsCount)
+{
 }
 
 void VehicleManager::sellVehicle(size_t index)

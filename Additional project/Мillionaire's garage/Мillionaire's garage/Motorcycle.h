@@ -13,7 +13,7 @@ public:
 		MyString brand, MyString model, MyString fuelType);
 
 	Vehicle* clone() const override;
-	Type getType() const override;
+	GroundType getType() const override;
 	void display() const override;
 
 	void setBrand(const MyString&);
