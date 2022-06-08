@@ -1,25 +1,6 @@
 #include "Car.h"
 
-void Car::copy(const Car& other)
-{
-	brand = new char[strlen(other.brand) + 1];
-	strcpy(brand, other.brand);
-
-	model = new char[strlen(other.model) + 1];
-	strcpy(model, other.model);
-
-	fuelType = new char[strlen(other.fuelType) + 1];
-	strcpy(fuelType, other.fuelType);
-}
-
-void Car::free()
-{
-	delete[] brand;
-	delete[] model;
-	delete[] fuelType;
-}
-
-Car::Car() : Garage()
+Car::Car() : Ground()
 {
 	t = CAR;
 	brand = nullptr;
@@ -27,40 +8,15 @@ Car::Car() : Garage()
 	fuelType = nullptr;
 }
 
-Car::Car(char* color, size_t maxSpeed, size_t yearCreated, char* brand, char* model, char* fuelType) : Garage(color,maxSpeed,yearCreated)
+Car::Car(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+	MyString brand, MyString model, MyString fuelType) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
 {
-	this->brand = new char[strlen(brand) + 1];
-	strcpy(this->brand, brand);
-
-	this->model = new char[strlen(model) + 1];
-	strcpy(this->model, model);
-
-	this->fuelType = new char[strlen(fuelType) + 1];
-	strcpy(this->fuelType, fuelType);
+	this->brand = brand;
+	this->model = model;
+	this->fuelType = fuelType;
 }
 
-Car::Car(const Car& other)
-{
-	copy(other);
-}
-
-Car& Car::operator=(const Car& other)
-{
-	if (this != &other)
-	{
-		free();
-		copy(other);
-	}
-
-	return *this;
-}
-
-Car::~Car()
-{
-	free();
-}
-
-Garage* Car::clone() const
+Vehicle* Car::clone() const
 {
 	return new Car(*this);
 }
@@ -70,35 +26,39 @@ Type Car::getType() const
 	return t;
 }
 
-void Car::setBrand(char* brand)
+void Car::display() const
 {
-	this->brand = new char[strlen(brand) + 1];
-	strcpy(this->brand, brand);
+	std::cout << "Brand: " << brand << std::endl;
+	std::cout << "Model: " << model << std::endl;
+	std::cout << "Fuel Type: " << fuelType << std::endl;
 }
 
-void Car::setModel(char* model)
+void Car::setBrand(const MyString& brand)
 {
-	this->model = new char[strlen(model) + 1];
-	strcpy(this->model, model);
+	this->brand = brand;
 }
 
-void Car::setFuelType(char* fuelType)
+void Car::setModel(const MyString& model)
 {
-	this->fuelType = new char[strlen(fuelType) + 1];
-	strcpy(this->fuelType, fuelType);
+	this->model = model;
 }
 
-const char* Car::getBrand() const
+void Car::setFuelType(const MyString& fuelType)
+{
+	this->fuelType = fuelType;
+}
+
+const MyString& Car::getBrand() const
 {
 	return brand;
 }
 
-const char* Car::getModel() const
+const MyString& Car::getModel() const
 {
 	return model;
 }
 
-const char* Car::getFuelType() const
+const MyString& Car::getFuelType() const
 {
 	return fuelType;
 }

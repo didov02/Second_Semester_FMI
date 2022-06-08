@@ -10,7 +10,6 @@ enum VehicleType {
 
 class Vehicle
 {
-
 protected:
 	VehicleType type;
 	int maxPassengers;
@@ -22,8 +21,8 @@ public:
 	Vehicle();
 	Vehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year);
 
-	virtual void display() = 0;
-	virtual Vehicle* clone() = 0;
+	virtual void display() const = 0;
+	virtual Vehicle* clone() const = 0;
 
 	VehicleType getType() const;
 	void setType(VehicleType);

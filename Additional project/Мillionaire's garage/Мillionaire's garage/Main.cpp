@@ -1,4 +1,5 @@
 #include <iostream>
+#include "MyString.h"
 
 const int MAX_SIZE = 50;
 
@@ -28,111 +29,137 @@ int main()
 
 		if (strcmp(option, "Buy") == 0)
 		{
-			std::cout << "What vehicle do you want to buy: ";//your options: car,motorcycle,boat
+			std::cout << "What type of vehicle do you want to buy: ";//your options: ground, air, water
 
-			char* vehicle = new char[MAX_SIZE];
-			std::cin.getline(vehicle, MAX_SIZE);
+			MyString typeOfVehicle;
+			std::cin >> typeOfVehicle;
 
-			if (strcmp(vehicle, "Car") == 0)
+			if (typeOfVehicle == "Ground")
 			{
-				std::cout << "Car brand: ";
-				char* brand = new char[MAX_SIZE];
-				std::cin.getline(brand, MAX_SIZE);
+				std::cout << "What ground vehicle do you want to buy: ";//your options: car, motorcycle, truck
 
-				std::cout << "Model: ";
-				char* model = new char[MAX_SIZE];
-				std::cin.getline(model, MAX_SIZE);
+				MyString vehicle;
+				std::cin >> vehicle;
 
-				std::cout << "Fuel: ";
-				char* fuelType = new char[MAX_SIZE];
-				std::cin.getline(fuelType, MAX_SIZE);
+				if (vehicle == "Car")
+				{
+					std::cout << "Car's name: ";
+					MyString carsPersonalName;
+					std::cin >> carsPersonalName;
 
-				std::cout << "Color: ";
-				char* color = new char[MAX_SIZE];
-				std::cin.getline(color, MAX_SIZE);
+					std::cout << "Brand: ";
+					MyString brand;
+					std::cin >> brand;
 
-				std::cout << "Max speed: ";
-				size_t maxSpeed;
-				std::cin >> maxSpeed;
+					std::cout << "Model: ";
+					MyString model;
+					std::cin >> model;
 
-				std::cout << "Created in: ";
-				size_t year;
-				std::cin >> year;
+					std::cout << "Fuel: ";
+					MyString fuel;
+					std::cin >> fuel;
 
-				//Action
+					std::cout << "Color: ";
+					MyString color;
+					std::cin >> fuel;
 
-				delete[] brand;
-				delete[] model;
-				delete[] fuelType;
-				delete[] color;
+					std::cout << "Max speed: ";
+					int maxSpeed;
+					std::cin >> maxSpeed;
+
+					std::cout << "Created in: ";
+					size_t year;
+					std::cin >> year;
+
+					std::cout << "Doors count: ";
+					size_t doors;
+					std::cin >> doors;
+
+					std::cout << "Max passengers: ";
+					int maxPassengers;
+					std::cin >> maxPassengers;
+
+
+					//Action
+				}
+				else if (vehicle == "Motorcycle")
+				{
+					std::cout << "Motorcycle's name: ";
+					MyString motorcyclePersonalName;
+					std::cin >> motorcyclePersonalName;
+
+					std::cout << "Brand: ";
+					MyString brand;
+					std::cin >> brand;
+
+					std::cout << "Model: ";
+					MyString model;;
+					std::cin >> model;
+
+					std::cout << "Frame type: ";
+					MyString frameType;
+					std::cin >> frameType;
+
+					std::cout << "Color: ";
+					MyString color;
+					std::cin >> color;
+
+					std::cout << "Max speed: ";
+					size_t maxSpeed;
+					std::cin >> maxSpeed;
+
+					std::cout << "Created in: ";
+					size_t year;
+					std::cin >> year;
+
+					//Action
+				}
+				else if (vehicle == "Truck")
+				{
+					std::cout << "Truck's name: ";
+					MyString truckPersonalName;
+					std::cin >> truckPersonalName;
+
+					std::cout << "Brand: ";
+					MyString brand;
+					std::cin >> brand;
+
+					std::cout << "Color: ";
+					MyString color;
+					std::cin >> color;
+
+					std::cout << "Max speed: ";
+					size_t maxSpeed;
+					std::cin >> maxSpeed;
+
+					std::cout << "Created in: ";
+					size_t year;
+					std::cin >> year;
+
+					std::cout << "Doors count: ";
+					size_t doors;
+					std::cin >> doors;
+
+					//Action
+				}
+				else
+				{
+					std::cout << "You can't buy such type of vehicle. Try again!" << std::endl;
+				}
 			}
-			else if (strcmp(vehicle, "Motorcycle") == 0)
+			else if (typeOfVehicle == "Air")
 			{
-				std::cout << "Motorcycle brand: ";
-				char* brand = new char[MAX_SIZE];
-				std::cin.getline(brand, MAX_SIZE);
 
-				std::cout << "Model: ";
-				char* model = new char[MAX_SIZE];
-				std::cin.getline(model, MAX_SIZE);
-
-				std::cout << "Frame type: ";
-				char* frame = new char[MAX_SIZE];
-				std::cin.getline(frame, MAX_SIZE);
-
-				std::cout << "Color: ";
-				char* color = new char[MAX_SIZE];
-				std::cin.getline(color, MAX_SIZE);
-
-				std::cout << "Max speed: ";
-				size_t maxSpeed;
-				std::cin >> maxSpeed;
-
-				std::cout << "Created in: ";
-				size_t year;
-				std::cin >> year;
-
-				//Action
-
-				delete[] brand;
-				delete[] model;
-				delete[] frame;
-				delete[] color;
 			}
-			else if (strcmp(vehicle, "Boat") == 0)
+			else if (typeOfVehicle == "Water")
 			{
-				std::cout << "Model: ";
-				char* model = new char[MAX_SIZE];
-				std::cin.getline(model, MAX_SIZE);
 
-				std::cout << "At which port is it located: ";
-				char* port = new char[MAX_SIZE];
-				std::cin.getline(port, MAX_SIZE);
-
-				std::cout << "Color: ";
-				char* color = new char[MAX_SIZE];
-				std::cin.getline(color, MAX_SIZE);
-
-				std::cout << "Max speed: ";
-				size_t maxSpeed;
-				std::cin >> maxSpeed;
-
-				std::cout << "Created in: ";
-				size_t year;
-				std::cin >> year;
-
-				//Action
-
-				delete[] model;
-				delete[] port;
-				delete[] color;
 			}
 			else
 			{
-				std::cout << "You can't buy such type of vehicle. Try again!" << std::endl;
-			}
 
-			delete[] vehicle;
+			}
+			
 		}
 		else if (strcmp(option, "Sell") == 0)
 		{

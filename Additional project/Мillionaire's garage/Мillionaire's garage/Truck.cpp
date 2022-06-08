@@ -1,0 +1,49 @@
+#include "Truck.h"
+
+Truck::Truck() : Ground()
+{
+
+}
+
+Truck::Truck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+	MyString brand, size_t capacity) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
+{
+	this->brand = brand;
+	this->capacity = capacity;
+}
+
+Vehicle* Truck::clone() const
+{
+	return new Truck(*this);
+}
+
+Type Truck::getType() const
+{
+	return t;
+}
+
+void Truck::display() const
+{
+	std::cout << "Brand: " << brand << std::endl;
+	std::cout << "Capacity: " << capacity << std::endl;
+}
+
+void Truck::setBrand(const MyString& brand)
+{
+	this->brand = brand;
+}
+
+void Truck::setCapacity(size_t capacity)
+{
+	this->capacity = capacity;
+}
+
+const MyString& Truck::getBrand() const
+{
+	return brand;
+}
+
+size_t Truck::getCapacity() const
+{
+	return capacity;
+}
