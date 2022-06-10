@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MyString.h"
+#include "VehicleManager.h"
 
 const int MAX_SIZE = 50;
 
@@ -19,6 +20,8 @@ void Menu()
 int main()
 {
 	Menu();
+
+	VehicleManager garage;
 
 	while (true)
 	{
@@ -79,8 +82,7 @@ int main()
 					int maxPassengers;
 					std::cin >> maxPassengers;
 
-
-					//Action
+					garage.createCar(maxPassengers, maxSpeed, carsPersonalName, VehicleType::Ground, year, color, doors, brand, model, fuel);
 				}
 				else if (vehicle == "Motorcycle")
 				{
@@ -107,12 +109,17 @@ int main()
 					std::cout << "Max speed: ";
 					size_t maxSpeed;
 					std::cin >> maxSpeed;
+					
+					std::cout << "Max passengers: ";
+					size_t maxPassengers;
+					std::cin >> maxPassengers;
 
 					std::cout << "Created in: ";
 					size_t year;
 					std::cin >> year;
 
 					//Action
+					garage.createMotorcycle(maxPassengers, maxSpeed, motorcyclePersonalName, VehicleType::Ground, year, color, 0, brand, model, frameType);
 				}
 				else if (vehicle == "Truck")
 				{
@@ -128,9 +135,17 @@ int main()
 					MyString color;
 					std::cin >> color;
 
+					std::cout << "Capacity: ";
+					size_t capacity;
+					std::cin >> capacity;
+
 					std::cout << "Max speed: ";
 					size_t maxSpeed;
 					std::cin >> maxSpeed;
+
+					std::cout << "Max passengers: ";
+					size_t maxPassengers;
+					std::cin >> maxPassengers;
 
 					std::cout << "Created in: ";
 					size_t year;
@@ -141,6 +156,7 @@ int main()
 					std::cin >> doors;
 
 					//Action
+					garage.createTruck(maxPassengers, maxSpeed, truckPersonalName, VehicleType::Ground, year, color, doors, brand, capacity);
 				}
 				else
 				{
@@ -380,30 +396,31 @@ int main()
 			std::cin >> index;
 
 			//Action
+			garage.sellVehicle(index);
 		}
 		else if (strcmp(option, "Show newest vehicle") == 0)
 		{
-			
+			garage.showNewestVehicle();
 		}
 		else if (strcmp(option, "Show oldest vehicle") == 0)
 		{
-
+			garage.showOldestVehicle();
 		}
 		else if (strcmp(option, "Show fastest vehicle") == 0)
 		{
-
-		}
+			garage.showFastestVehicle();
+		}	
 		else if (strcmp(option, "Show all vehicles") == 0)
 		{
-
+			garage.print();
 		}
 		else if (strcmp(option, "Count of vehicles") == 0)
 		{
-
+			garage.printCount();
 		}
 		else if (strcmp(option, "Save garage") == 0)
 		{
-
+			garage.save();
 		}
 		else if (strcmp(option, "Quit") == 0)
 		{

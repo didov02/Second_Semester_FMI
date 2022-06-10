@@ -10,7 +10,7 @@ private:
 public:
 	Motorcycle();
 	Motorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
-		MyString brand, MyString model, MyString fuelType);
+		MyString brand, MyString model, MyString frameType);
 
 	Vehicle* clone() const override;
 	GroundType getType() const override;

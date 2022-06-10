@@ -22,22 +22,28 @@ void VehicleManager::free()
 
 VehicleManager::VehicleManager()
 {
-
+	
 }
 
-VehicleManager::VehicleManager(Vector<Vehicle*>)
+VehicleManager::VehicleManager(Vector<Vehicle*> other)
 {
-
+	this->list = other;
 }
 
-VehicleManager::VehicleManager(const VehicleManager&)
+VehicleManager::VehicleManager(const VehicleManager& other)
 {
-
+	copy(other);
 }
 
-VehicleManager& VehicleManager::operator=(const VehicleManager&)
+VehicleManager& VehicleManager::operator=(const VehicleManager& other)
 {
+	if (this != &other)
+	{
+		free();
+		copy(other);
+	}
 
+	return *this;
 }
 
 void VehicleManager::print() const

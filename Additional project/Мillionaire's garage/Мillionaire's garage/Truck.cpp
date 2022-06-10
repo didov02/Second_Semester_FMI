@@ -17,7 +17,7 @@ Vehicle* Truck::clone() const
 	return new Truck(*this);
 }
 
-Type Truck::getType() const
+GroundType Truck::getType() const
 {
 	return t;
 }
