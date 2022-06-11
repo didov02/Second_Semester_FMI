@@ -7,7 +7,7 @@ AirVehicle::AirVehicle()
 	type = VehicleType::Air;
 }
 
-AirVehicle::AirVehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType t, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model) : Vehicle(maxPassengers, maxSpeed, name, t, year)
+AirVehicle::AirVehicle(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model) : Vehicle(maxPassengers, maxSpeed, name, year)
 {
 	this->wingspan = wingspan;
 	this->maxAltitude = maxAltitude;

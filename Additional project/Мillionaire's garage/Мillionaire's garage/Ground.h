@@ -17,7 +17,7 @@ private:
 	size_t doorsCount;
 public:
 	Ground();
-	Ground(int, int, const MyString&, VehicleType, int, const MyString&, size_t);
+	Ground(int, int, const MyString&, int, const MyString&, size_t);
 
 	void setColor(const MyString&);
 	const MyString& getColor() const;

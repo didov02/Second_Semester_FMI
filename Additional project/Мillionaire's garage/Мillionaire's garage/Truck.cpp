@@ -6,11 +6,11 @@ Truck::Truck() : Ground()
 }
 
 Truck::Truck(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
-	MyString brand, size_t capacity) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
+	MyString brand, size_t capacity) : Ground(maxPassengers, maxSpeed, name, year, color, doorsCount)
 {
-	type = VehicleType::Ground;
 	this->brand = brand;
 	this->capacity = capacity;
+	this->t = GroundType::TRUCK;
 }
 
 Vehicle* Truck::clone() const

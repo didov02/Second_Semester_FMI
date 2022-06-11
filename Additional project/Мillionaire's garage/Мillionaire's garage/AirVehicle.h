@@ -18,7 +18,7 @@ protected:
 
 public:
 	AirVehicle();
-	AirVehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType t, int year,
+	AirVehicle(int maxPassengers, int maxSpeed, const MyString& name, int year,
 		double wingspan, double maxAltitude, const MyString& color, const MyString& model);
 
 	void setWingspan(double);

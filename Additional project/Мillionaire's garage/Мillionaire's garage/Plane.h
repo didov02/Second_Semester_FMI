@@ -9,7 +9,7 @@ private:
 	double maxAirTime;
 
 public:
-	Plane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,
+	Plane(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan,
 		double maxAltitude, const MyString& color, const MyString& model,  double maxStorage, double maxAirTime);
 
 	Vehicle* clone() const override;

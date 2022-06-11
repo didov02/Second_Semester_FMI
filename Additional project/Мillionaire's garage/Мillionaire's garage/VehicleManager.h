@@ -34,16 +34,16 @@ public:
 	void createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 		const MyString& brand, const MyString& model, const MyString& frameType);
 
-	void createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,
+	void createPlane(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan,
 		double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime);
 
-	void createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,
+	void createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan,
 		double maxAltitude, const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom);
 
-	void createJacht(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width,
+	void createJacht(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length,
 		int crewSize, const MyString& color, const MyString& model, bool hasSwimmingPool, int roomCount);
 
-	void createSail(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width,
+	void createSail(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length,
 		int crewSize, const MyString& color, const MyString& model, bool hasEngine, int sailsCount);
 
 	void sellVehicle(size_t);

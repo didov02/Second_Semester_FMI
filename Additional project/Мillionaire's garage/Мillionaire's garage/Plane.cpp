@@ -1,10 +1,11 @@
 #include "Plane.h"
 
-Plane::Plane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model
-    , double maxStorage, double maxAirTime) : AirVehicle(maxPassengers, maxSpeed, name, type, year, wingspan, maxAltitude, color, model)
+Plane::Plane(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model
+    , double maxStorage, double maxAirTime) : AirVehicle(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model)
 {
     this->maxStorage = maxStorage;
     this->maxAirTime = maxAirTime;
+    this->t = AirType::PLANE;
 }
 
 Vehicle* Plane::clone() const

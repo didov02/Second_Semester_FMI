@@ -9,9 +9,9 @@ Car::Car() : Ground()
 }
 
 Car::Car(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
-	MyString brand, MyString model, MyString fuelType) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
+	MyString brand, MyString model, MyString fuelType) : Ground(maxPassengers, maxSpeed, name, year, color, doorsCount)
 {
-	type = VehicleType::Ground;
+	this->t = GroundType::CAR;
 	this->brand = brand;
 	this->model = model;
 	this->fuelType = fuelType;

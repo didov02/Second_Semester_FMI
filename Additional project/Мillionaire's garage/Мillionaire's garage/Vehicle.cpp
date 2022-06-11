@@ -7,12 +7,11 @@ Vehicle::Vehicle()
 	year = 0;
 }
 
-Vehicle::Vehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year)
+Vehicle::Vehicle(int maxPassengers, int maxSpeed, const MyString& name, int year)
 {
 	this->maxPassengers = maxPassengers;
 	this->maxSpeed = maxSpeed;
 	this->name = name;
-	this->type = type;
 	this->year = year;
 }
 
