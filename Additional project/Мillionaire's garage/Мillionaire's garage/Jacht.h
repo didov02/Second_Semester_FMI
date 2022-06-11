@@ -9,7 +9,7 @@ private:
 
 public:
 
-	Jacht(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double length, double width, int crewSize
+	Jacht(int maxPassengers, int maxSpeed, const MyString& name, int year, double length, double width, int crewSize
 		, const MyString& color, const MyString& model, bool hasSwimmingPool, int roomsCount);
 
 	Vehicle* clone() const override;

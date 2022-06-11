@@ -9,7 +9,7 @@ private:
 
 public:
 
-	Sail(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double length, double width, int crewSize
+	Sail(int maxPassengers, int maxSpeed, const MyString& name, int year, double length, double width, int crewSize
 		, const MyString& color, const MyString& model, bool hasEngine, int sailsCount);
 
 	Vehicle* clone() const override;

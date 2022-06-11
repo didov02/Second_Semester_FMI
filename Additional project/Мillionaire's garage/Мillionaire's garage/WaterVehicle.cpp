@@ -4,14 +4,15 @@ WaterVehicle::WaterVehicle()
 {
 }
 
-WaterVehicle::WaterVehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType t, int year,
-	double length, double width, double crewSize, const MyString& color, const MyString& model) : Vehicle(maxPassengers, maxSpeed, name, t, year)
+WaterVehicle::WaterVehicle(int maxPassengers, int maxSpeed, const MyString& name, int year,
+	double length, double width, double crewSize, const MyString& color, const MyString& model) : Vehicle(maxPassengers, maxSpeed, name, year)
 {
 	this->length = length;
 	this->width = width;
 	this->crewSize = crewSize;
 	this->color = color;
 	this->model = model;
+	this->type = VehicleType::Water;
 }
 
 void WaterVehicle::setLength(double length)

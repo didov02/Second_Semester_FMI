@@ -19,7 +19,7 @@ protected:
 
 public:
 	Vehicle();
-	Vehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year);
+	Vehicle(int maxPassengers, int maxSpeed, const MyString& name, int year);
 
 	virtual void display() const = 0;
 	virtual Vehicle* clone() const = 0;

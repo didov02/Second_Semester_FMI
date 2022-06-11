@@ -18,7 +18,7 @@ protected:
 
 public:
 	WaterVehicle();
-	WaterVehicle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType t, int year,
+	WaterVehicle(int maxPassengers, int maxSpeed, const MyString& name, int year,
 		double length, double width, double crewSize, const MyString& color, const MyString& model);
 
 

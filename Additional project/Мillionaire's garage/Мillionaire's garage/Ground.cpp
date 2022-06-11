@@ -7,10 +7,11 @@ Ground::Ground() : Vehicle()
 	doorsCount = 0;
 }
 
-Ground::Ground(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount) : 
-	Vehicle(maxPassengers,maxSpeed,name,type,year)
+Ground::Ground(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount) : 
+	Vehicle(maxPassengers,maxSpeed,name,year)
 {
 	this->color = color;
+	this->type = VehicleType::Ground;
 }
 
 void Ground::setColor(const MyString& color)

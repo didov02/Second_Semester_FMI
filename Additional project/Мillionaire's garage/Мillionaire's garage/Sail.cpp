@@ -1,11 +1,12 @@
 #include "Sail.h"
 
-Sail::Sail(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year
+Sail::Sail(int maxPassengers, int maxSpeed, const MyString& name, int year
     , double length, double width, int crewSize, const MyString& color, const MyString& model, bool hasEngine, int sailsCount) : WaterVehicle(maxPassengers, maxSpeed,
-        name, type, year, length, width, crewSize, color, model)
+        name, year, length, width, crewSize, color, model)
 {
     this->hasEngine = hasEngine;
     this->sailsCount = sailsCount;
+    this->t = WaterType::SAIL;
 }
 
 Vehicle* Sail::clone() const

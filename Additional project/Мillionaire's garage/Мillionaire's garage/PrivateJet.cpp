@@ -1,10 +1,11 @@
 #include "PrivateJet.h"
 
-PrivateJet::PrivateJet(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year,
-    double wingspan, double maxAltitude, const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom) : AirVehicle(maxPassengers, maxSpeed, name, type, year, wingspan, maxAltitude, color, model)
+PrivateJet::PrivateJet(int maxPassengers, int maxSpeed, const MyString& name, int year,
+    double wingspan, double maxAltitude, const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom) : AirVehicle(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model)
 {
     this->hasDrinkBar = hasDrinkBar;
     this->hasSleepingRoom = hasSleepingRoom;
+    this->t = AirType::JET;
 }
 
 Vehicle* PrivateJet::clone() const

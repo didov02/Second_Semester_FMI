@@ -214,7 +214,7 @@ int main()
 					double planeAirtime;
 					std::cin >> planeAirtime;
 					
-					//create plane
+					garage.createPlane(planePassengers, planeSpeed, planeName, planeYear, planeWingspan, planeAltitude, planeColor, planeModel, planeStorage, planeAirtime);
 				}
 				else if (vehicle == "PrivateJet")
 				{
@@ -223,37 +223,37 @@ int main()
 				, bool hasDrinkBar, bool hasSleepingRoom*/
 
 
-					std::cout << "Plane's name: ";
-					MyString planeName;
-					std::cin >> planeName;
+					std::cout << "PrivateJet's name: ";
+					MyString PrivateJetName;
+					std::cin >> PrivateJetName;
 
-					std::cout << "Plane's max passengers: ";
-					int planePassengers;
-					std::cin >> planePassengers;
+					std::cout << "PrivateJet's max passengers: ";
+					int PrivateJetPassengers;
+					std::cin >> PrivateJetPassengers;
 
 					std::cout << "Plane's max speed: ";
-					double planeSpeed;
-					std::cin >> planeSpeed;
+					double PrivateJetSpeed;
+					std::cin >> PrivateJetSpeed;
 
-					std::cout << "Plane's wingspan: ";
-					double planeWingspan;
-					std::cin >> planeWingspan;
+					std::cout << "PrivateJet's wingspan: ";
+					double PrivateJetWingspan;
+					std::cin >> PrivateJetWingspan;
 
 					std::cout << "Privatejet's max altitude: ";
-					double planeAltitude;
-					std::cin >> planeAltitude;
+					double PrivateJetAltitude;
+					std::cin >> PrivateJetAltitude;
 
 					std::cout << "Privatejet's year of creation: ";
-					int planeYear;
-					std::cin >> planeYear;
+					int PrivateJetYear;
+					std::cin >> PrivateJetYear;
 
 					std::cout << "Privatejet's color: ";
-					MyString planeColor;
-					std::cin >> planeColor;
+					MyString PrivateJetColor;
+					std::cin >> PrivateJetColor;
 
 					std::cout << "Privatejet's model: ";
-					MyString planeModel;
-					std::cin >> planeModel;
+					MyString PrivateJetModel;
+					std::cin >> PrivateJetModel;
 
 					std::cout << "Privatejet's drinkbar: ";
 					bool hasDrinkBar;
@@ -263,7 +263,7 @@ int main()
 					double sleepingRoom;
 					std::cin >> sleepingRoom;
 
-					//create and add privatejet
+					garage.createPrivateJet(PrivateJetPassengers, PrivateJetSpeed, PrivateJetName, PrivateJetYear, PrivateJetWingspan, PrivateJetAltitude, PrivateJetColor, PrivateJetModel, hasDrinkBar, sleepingRoom);
 				}
 				else
 				{
@@ -289,11 +289,11 @@ int main()
 					std::cin >> jachtName;
 
 					std::cout << "Jacht's max passengers: ";
-					MyString jachtPassengers;
+					int jachtPassengers;
 					std::cin >> jachtPassengers;
 
 					std::cout << "Jacht's max speed: ";
-					MyString jachtSpeed;
+					int jachtSpeed;
 					std::cin >> jachtSpeed;
 
 					std::cout << "Jacht's year of creation: ";
@@ -328,7 +328,7 @@ int main()
 					int jachtRooms;
 					std::cin >> jachtRooms;
 
-					//Create and add jacht
+					garage.createJacht(jachtPassengers, jachtSpeed, jachtName, jachtYear, jachtWidth, jachtLength, jachtCrew, jachtColor, jachtModel, jachtSwimmingPool, jachtRooms);
 
 				}
 				else if (vehicle == "Sail")
@@ -341,11 +341,11 @@ int main()
 					std::cin >> sailName;
 
 					std::cout << "Sail's max passengers: ";
-					MyString sailPassengers;
+					int sailPassengers;
 					std::cin >> sailPassengers;
 
 					std::cout << "Sail's max speed: ";
-					MyString sailSpeed;
+					int sailSpeed;
 					std::cin >> sailSpeed;
 
 					std::cout << "Sail's year of creation: ";
@@ -379,6 +379,8 @@ int main()
 					std::cout << "Sail's sail count: ";
 					int sailsCount;
 					std::cin >> sailsCount;
+
+					garage.createJacht(sailPassengers, sailSpeed, sailName, sailYear, sailWidth, sailLength, sailCrew, sailColor, sailModel, sailEngine, sailsCount);
 
 				}
 

@@ -75,20 +75,28 @@ void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyS
 		brand, model, frameType));
 }
 
-void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime)
+void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan, double maxAltitude,
+	const MyString& color, const MyString& model, double maxStorage, double maxAirTime)
 {
+	list.pushBack(new Plane(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model, maxStorage, maxAirTime));
 }
 
-void VehicleManager::createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom)
+void VehicleManager::createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan, double maxAltitude,
+	const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom)
 {
+	list.pushBack(new PrivateJet(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model, hasDrinkBar, hasSleepingRoom));
 }
 
-void VehicleManager::createJacht(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width, int crewSize, const MyString& color, const MyString& model, bool hasSwimmingPool, int roomCount)
+void VehicleManager::createJacht(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length, int crewSize, const MyString& color,
+	const MyString& model, bool hasSwimmingPool, int roomCount)
 {
+	list.pushBack(new Jacht(maxPassengers, maxSpeed, name, year, length, width, crewSize, color, model, hasSwimmingPool, roomCount));
 }
 
-void VehicleManager::createSail(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double width, int crewSize, const MyString& color, const MyString& model, bool hasEngine, int sailsCount)
+void VehicleManager::createSail(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length, int crewSize, const MyString& color,
+	const MyString& model, bool hasEngine, int sailsCount)
 {
+	list.pushBack(new Jacht(maxPassengers, maxSpeed, name, year, length, width, crewSize, color, model, hasEngine, sailsCount));
 }
 
 void VehicleManager::sellVehicle(size_t index)
