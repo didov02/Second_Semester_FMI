@@ -28,9 +28,9 @@ void Sail::display() const
     std::cout << "Crew size: " << crewSize << std::endl;
     std::cout << "Sails count: " << sailsCount << std::endl;
     if (hasEngine)
-        std::cout << "Has engine pool: yes" << std::endl;
+        std::cout << "Has engine: yes" << std::endl;
     else
-        std::cout << "Has engine pool: no" << std::endl;
+        std::cout << "Has engine: no" << std::endl;
 }
 
 bool Sail::getHasEngine() const

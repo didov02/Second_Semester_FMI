@@ -32,14 +32,15 @@ int main()
 
 		if (strcmp(option, "Buy") == 0)
 		{
-			std::cout << "What type of vehicle do you want to buy: ";//your options: ground, air, water
+			std::cout << "What type of vehicle do you want to buy: Ground, Air, Water" << std::endl;
 
 			MyString typeOfVehicle;
 			std::cin >> typeOfVehicle;
+			std::cin.ignore();
 
 			if (typeOfVehicle == "Ground")
 			{
-				std::cout << "What ground vehicle do you want to buy: ";//your options: car, motorcycle, truck
+				std::cout << "What ground vehicle do you want to buy: Car, Motorcycle, Truck" << std::endl;
 
 				MyString vehicle;
 				std::cin >> vehicle;
@@ -64,7 +65,7 @@ int main()
 
 					std::cout << "Color: ";
 					MyString color;
-					std::cin >> fuel;
+					std::cin >> color;
 
 					std::cout << "Max speed: ";
 					int maxSpeed;
@@ -81,6 +82,7 @@ int main()
 					std::cout << "Max passengers: ";
 					int maxPassengers;
 					std::cin >> maxPassengers;
+					std::cin.ignore();
 
 					garage.createCar(maxPassengers, maxSpeed, carsPersonalName, year, color, doors, brand, model, fuel);
 				}
@@ -117,8 +119,8 @@ int main()
 					std::cout << "Created in: ";
 					size_t year;
 					std::cin >> year;
+					std::cin.ignore();
 
-					//Action
 					garage.createMotorcycle(maxPassengers, maxSpeed, motorcyclePersonalName, year, color, 0, brand, model, frameType);
 				}
 				else if (vehicle == "Truck")
@@ -154,8 +156,8 @@ int main()
 					std::cout << "Doors count: ";
 					size_t doors;
 					std::cin >> doors;
+					std::cin.ignore();
 
-					//Action
 					garage.createTruck(maxPassengers, maxSpeed, truckPersonalName, year, color, doors, brand, capacity);
 				}
 				else
@@ -165,15 +167,12 @@ int main()
 			}
 			else if (typeOfVehicle == "Air")
 			{
-				std::cout << "What air vehicle do you want to buy: Plane, PrivateJet";
+				std::cout << "What air vehicle do you want to buy: Plane, PrivateJet" << std::endl;
 				MyString vehicle;
 				std::cin >> vehicle;
 
 				if (vehicle == "Plane")
 				{
-					/*int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,
-					double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime*/
-
 					std::cout << "Plane's name: ";
 					MyString planeName;
 					std::cin >> planeName;
@@ -213,16 +212,12 @@ int main()
 					std::cout << "Plane's max air time: ";
 					double planeAirtime;
 					std::cin >> planeAirtime;
+					std::cin.ignore();
 					
 					garage.createPlane(planePassengers, planeSpeed, planeName, planeYear, planeWingspan, planeAltitude, planeColor, planeModel, planeStorage, planeAirtime);
 				}
 				else if (vehicle == "PrivateJet")
 				{
-					/*nt maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,
-					double maxAltitude, const MyString& color, const MyString& model
-				, bool hasDrinkBar, bool hasSleepingRoom*/
-
-
 					std::cout << "PrivateJet's name: ";
 					MyString PrivateJetName;
 					std::cin >> PrivateJetName;
@@ -262,6 +257,7 @@ int main()
 					std::cout << "Privatejet's sleeping room: ";
 					double sleepingRoom;
 					std::cin >> sleepingRoom;
+					std::cin.ignore();
 
 					garage.createPrivateJet(PrivateJetPassengers, PrivateJetSpeed, PrivateJetName, PrivateJetYear, PrivateJetWingspan, PrivateJetAltitude, PrivateJetColor, PrivateJetModel, hasDrinkBar, sleepingRoom);
 				}
@@ -269,21 +265,16 @@ int main()
 				{
 					std::cout << "No such vehicle found here\n";
 				}
-
-
 			}
 			else if (typeOfVehicle == "Water")
 			{
 
-				std::cout << "What water vehicle do you want to buy: Jacht, Sail";
+				std::cout << "What water vehicle do you want to buy: Jacht, Sail" << std::endl;
 				MyString vehicle;
 				std::cin >> vehicle;
 
 				if (vehicle == "Jacht")
 				{
-					/*int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double length, double width, int crewSize
-					, const MyString& color, const MyString& model, bool hasSwimmingPool, int roomsCount*/
-
 					std::cout << "Jacht's name: ";
 					MyString jachtName;
 					std::cin >> jachtName;
@@ -327,15 +318,13 @@ int main()
 					std::cout << "Jacht's rooms count: ";
 					int jachtRooms;
 					std::cin >> jachtRooms;
+					std::cin.ignore();
 
 					garage.createJacht(jachtPassengers, jachtSpeed, jachtName, jachtYear, jachtWidth, jachtLength, jachtCrew, jachtColor, jachtModel, jachtSwimmingPool, jachtRooms);
 
 				}
 				else if (vehicle == "Sail")
 				{
-					/*int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double length, double width, int crewSize
-					, const MyString& color, const MyString& model, bool hasEngine, int sailsCount*/
-
 					std::cout << "Sail's name: ";
 					MyString sailName;
 					std::cin >> sailName;
@@ -379,6 +368,7 @@ int main()
 					std::cout << "Sail's sail count: ";
 					int sailsCount;
 					std::cin >> sailsCount;
+					std::cin.ignore();
 
 					garage.createJacht(sailPassengers, sailSpeed, sailName, sailYear, sailWidth, sailLength, sailCrew, sailColor, sailModel, sailEngine, sailsCount);
 
@@ -387,18 +377,17 @@ int main()
 			}
 			else
 			{
-
+				std::cout << "No such vehicle found here." << std::endl;
 			}
-			
 		}
 		else if (strcmp(option, "Sell") == 0)
 		{
 			std::cout << "Which vehicle do you want to sell: ";
 			size_t index;
 			std::cin >> index;
+			std::cin.ignore();
 
-			//Action
-			garage.sellVehicle(index);
+			garage.sellVehicle(index-1);
 		}
 		else if (strcmp(option, "Show newest vehicle") == 0)
 		{
@@ -427,8 +416,12 @@ int main()
 		else if (strcmp(option, "Quit") == 0)
 		{
 			std::cout << "Have a nice day! Goodbye!" << std::endl;
-			//delete[] option;
+			delete[] option;
 			break;
+		}
+		else
+		{
+			std::cout << "No such option!" << std::endl;
 		}
 
 		delete[] option;

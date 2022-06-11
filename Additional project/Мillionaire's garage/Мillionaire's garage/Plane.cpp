@@ -20,13 +20,14 @@ AirType Plane::getType() const
 
 void Plane::display() const
 {
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Year: " << year << std::endl;
-    std::cout << "Color: " << color << std::endl;
-    std::cout << "Wingspan: " << wingspan << std::endl;
-    std::cout << "Max Altitude: " << maxAltitude << std::endl;
-    std::cout << "Max Storage: " << maxStorage << std::endl;
-    std::cout << "Max Airtime: " << maxAirTime << std::endl;
+    std::cout << "Plane" << std::endl;
+    std::cout << "-Name: " << name << std::endl;
+    std::cout << "-Year: " << year << std::endl;
+    std::cout << "-Color: " << color << std::endl;
+    std::cout << "-Wingspan: " << wingspan << std::endl;
+    std::cout << "-Max Altitude: " << maxAltitude << std::endl;
+    std::cout << "-Max Storage: " << maxStorage << std::endl;
+    std::cout << "-Max Airtime: " << maxAirTime << std::endl;
 }
 
 double Plane::getMaxStorage() const

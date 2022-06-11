@@ -29,10 +29,11 @@ GroundType Car::getType() const
 
 void Car::display() const
 {
-	std::cout << "Brand: " << brand << std::endl;
-	std::cout << "Model: " << model << std::endl;
-	std::cout << "Fuel Type: " << fuelType << std::endl;
-	std::cout << "Color: " << this->getColor() << std::endl;
+	std::cout << "Car" << std::endl;
+	std::cout << "-Brand: " << brand << std::endl;
+	std::cout << "-Model: " << model << std::endl;
+	std::cout << "-Fuel Type: " << fuelType << std::endl;
+	std::cout << "-Color: " << this->getColor() << std::endl;
 }
 
 void Car::setBrand(const MyString& brand)

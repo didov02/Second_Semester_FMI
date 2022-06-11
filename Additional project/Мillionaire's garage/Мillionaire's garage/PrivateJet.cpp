@@ -20,20 +20,21 @@ AirType PrivateJet::getType() const
 
 void PrivateJet::display() const
 {
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Year: " << year << std::endl;
-    std::cout << "Color: " << color << std::endl;
-    std::cout << "Wingspan: " << wingspan << std::endl;
-    std::cout << "Max Altitude: " << maxAltitude << std::endl;
+    std::cout << "Plane Jet" << std::endl;
+    std::cout << "-Name: " << name << std::endl;
+    std::cout << "-Year: " << year << std::endl;
+    std::cout << "-Color: " << color << std::endl;
+    std::cout << "-Wingspan: " << wingspan << std::endl;
+    std::cout << "-Max Altitude: " << maxAltitude << std::endl;
     if(hasDrinkBar)
-        std::cout << "Has drinkbar: yes" << std::endl;
+        std::cout << "-Has drinkbar: yes" << std::endl;
     else
-        std::cout << "Has drinkbar: no" << std::endl;
+        std::cout << "-Has drinkbar: no" << std::endl;
 
     if (hasSleepingRoom)
-        std::cout << "Has sleeping room: yes" << std::endl;
+        std::cout << "-Has sleeping room: yes" << std::endl;
     else
-        std::cout << "Has sleeping room: no" << std::endl;
+        std::cout << "-Has sleeping room: no" << std::endl;
 }
 
 bool PrivateJet::getDrinkBar() const

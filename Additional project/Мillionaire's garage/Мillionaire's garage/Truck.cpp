@@ -25,10 +25,11 @@ GroundType Truck::getType() const
 
 void Truck::display() const
 {
-	std::cout << "Brand: " << brand << std::endl;
-	std::cout << "Capacity: " << capacity << std::endl;
-	std::cout << "Color: " << this->getColor() << std::endl;
-	std::cout << "Doors count: " << this->getDoorsCount() << std::endl;
+	std::cout << "Truck" << std::endl;
+	std::cout << "-Brand: " << brand << std::endl;
+	std::cout << "-Capacity: " << capacity << std::endl;
+	std::cout << "-Color: " << this->getColor() << std::endl;
+	std::cout << "-Doors count: " << this->getDoorsCount() << std::endl;
 }
 
 void Truck::setBrand(const MyString& brand)

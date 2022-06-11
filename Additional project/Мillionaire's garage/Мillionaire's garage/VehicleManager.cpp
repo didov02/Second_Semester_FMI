@@ -10,6 +10,13 @@ void VehicleManager::copy(const VehicleManager& other)
 	}
 }
 
+void ClearSyncIgnore()
+{
+	std::cin.clear();
+	std::cin.sync();
+	std::cin.ignore();
+}
+
 void VehicleManager::free()
 {
 	size_t size = list.getSize();
@@ -53,6 +60,7 @@ void VehicleManager::print() const
 	for (int i = 0; i < size; i++)
 	{
 		list[i]->display();
+		std::cout << std::endl;
 	}
 }
 
@@ -63,7 +71,7 @@ void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& 
 
 	MyString newCar = "Car, ";
 	newCar += name;
-	newCar += " is added.\n";
+	newCar += " ,is added.\n";
 	log.pushBack(newCar);
 }
 
@@ -74,7 +82,7 @@ void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString
 
 	MyString newTruck = "Truck, ";
 	newTruck += name;
-	newTruck += " is added.\n";
+	newTruck += " ,is added.\n";
 	log.pushBack(newTruck);
 }
 
@@ -84,9 +92,9 @@ void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyS
 	list.pushBack(new Motorcycle(maxPassengers, maxSpeed, name, year, color, doorsCount,
 		brand, model, frameType));
 
-	MyString newMotorcycle = "Truck, ";
+	MyString newMotorcycle = "Motorcycle, ";
 	newMotorcycle += name;
-	newMotorcycle += " is added.\n";
+	newMotorcycle += " ,is added.\n";
 	log.pushBack(newMotorcycle);
 }
 
@@ -94,24 +102,44 @@ void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString
 	const MyString& color, const MyString& model, double maxStorage, double maxAirTime)
 {
 	list.pushBack(new Plane(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model, maxStorage, maxAirTime));
+
+	MyString newPlane = "Plane, ";
+	newPlane += name;
+	newPlane += " ,is added.\n";
+	log.pushBack(newPlane);
 }
 
 void VehicleManager::createPrivateJet(int maxPassengers, int maxSpeed, const MyString& name, int year, double wingspan, double maxAltitude,
 	const MyString& color, const MyString& model, bool hasDrinkBar, bool hasSleepingRoom)
 {
 	list.pushBack(new PrivateJet(maxPassengers, maxSpeed, name, year, wingspan, maxAltitude, color, model, hasDrinkBar, hasSleepingRoom));
+
+	MyString newPrivateJet = "Private jet, ";
+	newPrivateJet += name;
+	newPrivateJet += " ,is added.\n";
+	log.pushBack(newPrivateJet);
 }
 
 void VehicleManager::createJacht(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length, int crewSize, const MyString& color,
 	const MyString& model, bool hasSwimmingPool, int roomCount)
 {
 	list.pushBack(new Jacht(maxPassengers, maxSpeed, name, year, length, width, crewSize, color, model, hasSwimmingPool, roomCount));
+
+	MyString newJacht = "Jacht, ";
+	newJacht += name;
+	newJacht += " ,is added.\n";
+	log.pushBack(newJacht);
 }
 
 void VehicleManager::createSail(int maxPassengers, int maxSpeed, const MyString& name, int year, double width, double length, int crewSize, const MyString& color,
 	const MyString& model, bool hasEngine, int sailsCount)
 {
 	list.pushBack(new Jacht(maxPassengers, maxSpeed, name, year, length, width, crewSize, color, model, hasEngine, sailsCount));
+
+	MyString newSail = "Sail, ";
+	newSail += name;
+	newSail += " ,is added.\n";
+	log.pushBack(newSail);
 }
 
 void VehicleManager::sellVehicle(size_t index)
@@ -119,6 +147,7 @@ void VehicleManager::sellVehicle(size_t index)
 	if (index >= list.getSize())
 		throw "Unavailable index!";
 
+	delete list[index];
 	list.popAt(index);
 
 	log.pushBack(MyString("A vehicle was deleted.\n"));
@@ -171,7 +200,7 @@ void VehicleManager::showFastestVehicle() const
 	{
 		if (list[i]->getMaxSpeed() > maxSpeed)
 		{
-			maxSpeed = list[i]->getYear();
+			maxSpeed = list[i]->getMaxSpeed();
 			maxSpeedIndex = i;
 		}
 	}
@@ -199,6 +228,8 @@ void VehicleManager::save() const
 	{
 		file << log[i];
 	}
+
+	std::cout << "Actions.txt is successufully saved!" << std::endl;
 
 	file.close();
 }

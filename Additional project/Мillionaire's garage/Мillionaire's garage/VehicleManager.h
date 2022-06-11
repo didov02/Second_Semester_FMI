@@ -10,7 +10,9 @@
 #include "Vector.hpp"
 #include <fstream>
 
-const int BIG_NUMBER = 1000000;
+const int BIG_NUMBER = 1000000;\
+
+void ClearSyncIgnore();
 
 class VehicleManager
 {

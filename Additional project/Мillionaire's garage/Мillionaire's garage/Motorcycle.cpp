@@ -29,9 +29,10 @@ GroundType Motorcycle::getType() const
 
 void Motorcycle::display() const
 {
-	std::cout << "Brand: " << brand << std::endl;
-	std::cout << "Model: " << model << std::endl;
-	std::cout << "Frame type: " << frameType << std::endl;
+	std::cout << "Motorcycle" << std::endl;
+	std::cout << "-Brand: " << brand << std::endl;
+	std::cout << "-Model: " << model << std::endl;
+	std::cout << "-Frame type: " << frameType << std::endl;
 }
 
 void Motorcycle::setBrand(const MyString& brand)

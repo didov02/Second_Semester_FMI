@@ -21,15 +21,16 @@ WaterType Jacht::getType() const
 
 void Jacht::display() const
 {
-    std::cout << "Name: " << name << std::endl;
-    std::cout << "Year: " << year << std::endl;
-    std::cout << "Color: " << color << std::endl;
-    std::cout << "Crew size: " << crewSize << std::endl;
-    std::cout << "Rooms count: " << roomsCount << std::endl;
+	std::cout << "Yacht" << std::endl;
+    std::cout << "-Name: " << name << std::endl;
+    std::cout << "-Year: " << year << std::endl;
+    std::cout << "-Color: " << color << std::endl;
+    std::cout << "-Crew size: " << crewSize << std::endl;
+    std::cout << "-Rooms count: " << roomsCount << std::endl;
     if (hasSwimmingPool)
-        std::cout << "Has swimming pool: yes" << std::endl;
+        std::cout << "-Has swimming pool: yes" << std::endl;
     else
-        std::cout << "Has swimming pool: no" << std::endl;
+        std::cout << "-Has swimming pool: no" << std::endl;
 }
 
 bool Jacht::getHasSwimmingPool() const
