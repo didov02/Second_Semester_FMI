@@ -60,12 +60,22 @@ void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& 
 	const MyString& brand, const MyString& model, const MyString& fuelType)
 {
 	list.pushBack(new Car(maxPassengers, maxSpeed, name, year, color, doorsCount, brand, model, fuelType));
+
+	MyString newCar = "Car, ";
+	newCar += name;
+	newCar += " is added.\n";
+	log.pushBack(newCar);
 }
 
 void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 	const MyString& brand, size_t capacity)
 {
 	list.pushBack(new Truck(maxPassengers, maxSpeed, name, year, color, doorsCount, brand, capacity));
+
+	MyString newTruck = "Truck, ";
+	newTruck += name;
+	newTruck += " is added.\n";
+	log.pushBack(newTruck);
 }
 
 void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
@@ -73,6 +83,11 @@ void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyS
 {
 	list.pushBack(new Motorcycle(maxPassengers, maxSpeed, name, year, color, doorsCount,
 		brand, model, frameType));
+
+	MyString newMotorcycle = "Truck, ";
+	newMotorcycle += name;
+	newMotorcycle += " is added.\n";
+	log.pushBack(newMotorcycle);
 }
 
 void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime)
@@ -97,6 +112,8 @@ void VehicleManager::sellVehicle(size_t index)
 		throw "Unavailable index!";
 
 	list.popAt(index);
+
+	log.pushBack(MyString("A vehicle was deleted.\n"));
 }
 
 void VehicleManager::showNewestVehicle() const
@@ -161,5 +178,19 @@ void VehicleManager::printCount() const
 
 void VehicleManager::save() const
 {
+	std::fstream file("actions.txt", std::ios::out);
 
+	if (!file.is_open())
+	{
+		throw "Undefined behaviour!";
+	}
+
+	size_t logSize = log.getSize();
+
+	for (int i = 0; i < logSize; i++)
+	{
+		file << log[i];
+	}
+
+	file.close();
 }

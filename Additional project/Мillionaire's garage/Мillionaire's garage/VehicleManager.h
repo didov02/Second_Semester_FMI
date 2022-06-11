@@ -8,6 +8,7 @@
 #include "Plane.h"
 #include "PrivateJet.h"
 #include "Vector.hpp"
+#include <fstream>
 
 const int BIG_NUMBER = 1000000;
 
@@ -15,6 +16,7 @@ class VehicleManager
 {
 private:
 	Vector<Vehicle*> list;
+	Vector<MyString> log;
 public:
 	VehicleManager();
 	VehicleManager(Vector<Vehicle*>);
