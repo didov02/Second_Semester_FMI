@@ -82,7 +82,7 @@ int main()
 					int maxPassengers;
 					std::cin >> maxPassengers;
 
-					garage.createCar(maxPassengers, maxSpeed, carsPersonalName, VehicleType::Ground, year, color, doors, brand, model, fuel);
+					garage.createCar(maxPassengers, maxSpeed, carsPersonalName, year, color, doors, brand, model, fuel);
 				}
 				else if (vehicle == "Motorcycle")
 				{
@@ -119,7 +119,7 @@ int main()
 					std::cin >> year;
 
 					//Action
-					garage.createMotorcycle(maxPassengers, maxSpeed, motorcyclePersonalName, VehicleType::Ground, year, color, 0, brand, model, frameType);
+					garage.createMotorcycle(maxPassengers, maxSpeed, motorcyclePersonalName, year, color, 0, brand, model, frameType);
 				}
 				else if (vehicle == "Truck")
 				{
@@ -156,7 +156,7 @@ int main()
 					std::cin >> doors;
 
 					//Action
-					garage.createTruck(maxPassengers, maxSpeed, truckPersonalName, VehicleType::Ground, year, color, doors, brand, capacity);
+					garage.createTruck(maxPassengers, maxSpeed, truckPersonalName, year, color, doors, brand, capacity);
 				}
 				else
 				{

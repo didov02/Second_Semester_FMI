@@ -56,23 +56,23 @@ void VehicleManager::print() const
 	}
 }
 
-void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+void VehicleManager::createCar(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 	const MyString& brand, const MyString& model, const MyString& fuelType)
 {
-	Car temp(maxPassengers, maxSpeed, name, type, year, color, doorsCount, brand, model, fuelType);
-	list.pushBack(temp.clone());
+	list.pushBack(new Car(maxPassengers, maxSpeed, name, year, color, doorsCount, brand, model, fuelType));
 }
 
-void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+void VehicleManager::createTruck(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 	const MyString& brand, size_t capacity)
 {
-
+	list.pushBack(new Truck(maxPassengers, maxSpeed, name, year, color, doorsCount, brand, capacity));
 }
 
-void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+void VehicleManager::createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 	const MyString& brand, const MyString& model, const MyString& frameType)
 {
-
+	list.pushBack(new Motorcycle(maxPassengers, maxSpeed, name, year, color, doorsCount,
+		brand, model, frameType));
 }
 
 void VehicleManager::createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan, double maxAltitude, const MyString& color, const MyString& model, double maxStorage, double maxAirTime)

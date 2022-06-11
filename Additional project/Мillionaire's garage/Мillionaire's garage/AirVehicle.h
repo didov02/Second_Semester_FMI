@@ -5,7 +5,6 @@ enum AirType
 {
 	PLANE,
 	JET,
-	UNKNOWN
 };
 
 class AirVehicle : public Vehicle

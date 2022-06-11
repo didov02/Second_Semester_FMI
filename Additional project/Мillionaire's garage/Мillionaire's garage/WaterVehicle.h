@@ -4,7 +4,6 @@
 enum WaterType {
 	JACHT,
 	SAIL,
-	UNKNOWN
 };
 
 class WaterVehicle : public Vehicle

@@ -9,7 +9,7 @@ private:
 	MyString fuelType;
 public:
 	Car();
-	Car(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+	Car(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
 		MyString brand, MyString model, MyString fuelType);
 
 	Vehicle* clone() const override;

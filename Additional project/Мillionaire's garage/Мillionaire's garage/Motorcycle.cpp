@@ -8,9 +8,10 @@ Motorcycle::Motorcycle() : Ground()
 	frameType = nullptr;
 }
 
-Motorcycle::Motorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+Motorcycle::Motorcycle(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
 	MyString brand, MyString model, MyString frameType) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
 {
+	type = VehicleType::Ground;
 	this->brand = brand;
 	this->model = model;
 	this->frameType = frameType;
@@ -29,7 +30,8 @@ GroundType Motorcycle::getType() const
 void Motorcycle::display() const
 {
 	std::cout << "Brand: " << brand << std::endl;
-
+	std::cout << "Model: " << model << std::endl;
+	std::cout << "Frame type: " << frameType << std::endl;
 }
 
 void Motorcycle::setBrand(const MyString& brand)

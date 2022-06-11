@@ -1,6 +1,12 @@
 #pragma once
 #include "Vehicle.h"
 #include "Car.h"
+#include "Truck.h"
+#include "Motorcycle.h"
+#include "Sail.h"
+#include "Jacht.h"
+#include "Plane.h"
+#include "PrivateJet.h"
 #include "Vector.hpp"
 
 const int BIG_NUMBER = 1000000;
@@ -17,13 +23,13 @@ public:
 
 	void print() const;
 
-	void createCar(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	void createCar(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 		const MyString& brand, const MyString& model, const MyString& fuelType);
 
-	void createTruck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	void createTruck(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 		const MyString& brand, size_t capacity);
 
-	void createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, const MyString& color, size_t doorsCount,
+	void createMotorcycle(int maxPassengers, int maxSpeed, const MyString& name, int year, const MyString& color, size_t doorsCount,
 		const MyString& brand, const MyString& model, const MyString& frameType);
 
 	void createPlane(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, double wingspan,

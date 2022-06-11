@@ -5,9 +5,10 @@ Truck::Truck() : Ground()
 
 }
 
-Truck::Truck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+Truck::Truck(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
 	MyString brand, size_t capacity) : Ground(maxPassengers, maxSpeed, name, type, year, color, doorsCount)
 {
+	type = VehicleType::Ground;
 	this->brand = brand;
 	this->capacity = capacity;
 }
@@ -26,6 +27,8 @@ void Truck::display() const
 {
 	std::cout << "Brand: " << brand << std::endl;
 	std::cout << "Capacity: " << capacity << std::endl;
+	std::cout << "Color: " << this->getColor() << std::endl;
+	std::cout << "Doors count: " << this->getDoorsCount() << std::endl;
 }
 
 void Truck::setBrand(const MyString& brand)

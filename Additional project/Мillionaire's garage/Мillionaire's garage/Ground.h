@@ -5,8 +5,7 @@ enum GroundType
 {
 	CAR,
 	MOTORCYCLE,
-	TRUCK,
-	UNKNOWN
+	TRUCK
 };
 
 class Ground : public Vehicle
@@ -22,6 +21,9 @@ public:
 
 	void setColor(const MyString&);
 	const MyString& getColor() const;
+
+	void setDoorsCount(size_t);
+	size_t getDoorsCount() const;
 
 	virtual Vehicle* clone() const = 0;
 	virtual GroundType getType() const = 0;

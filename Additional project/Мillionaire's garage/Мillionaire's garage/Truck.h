@@ -8,7 +8,7 @@ private:
 	size_t capacity;
 public:
 	Truck();
-	Truck(int maxPassengers, int maxSpeed, const MyString& name, VehicleType type, int year, MyString color, size_t doorsCount,
+	Truck(int maxPassengers, int maxSpeed, const MyString& name, int year, MyString color, size_t doorsCount,
 		MyString brand, size_t capacity);
 
 	Vehicle* clone() const override;
