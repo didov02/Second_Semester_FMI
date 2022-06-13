@@ -1,5 +1,5 @@
 #pragma once
-#include "MyString.h"
+#include "String.h"
 
 enum VehicleType {
 	Ground,
@@ -14,12 +14,13 @@ protected:
 	VehicleType type;
 	int maxPassengers;
 	int maxSpeed;
-	MyString name;
+	String name;
 	int year;
 
 public:
 	Vehicle();
-	Vehicle(int maxPassengers, int maxSpeed, const MyString& name, int year);
+	Vehicle(int maxPassengers, int maxSpeed, const String& name, int year);
+	virtual ~Vehicle() = default;
 
 	virtual void display() const = 0;
 	virtual Vehicle* clone() const = 0;
@@ -33,8 +34,8 @@ public:
 	int getMaxSpeed() const;
 	void setMaxSpeed(int);
 
-	const MyString& getName() const;
-	void setName(const MyString&);
+	const String& getName() const;
+	void setName(const String&);
 
 	int getYear() const;
 	void setYear(int);
