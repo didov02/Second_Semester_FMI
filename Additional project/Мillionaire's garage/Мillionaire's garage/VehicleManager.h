@@ -12,8 +12,6 @@
 
 const int BIG_NUMBER = 1000000;
 
-void ClearSyncIgnore();
-
 class VehicleManager
 {
 private:
