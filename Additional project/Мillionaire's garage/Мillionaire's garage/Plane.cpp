@@ -35,7 +35,7 @@ double Plane::getMaxStorage() const
     return maxStorage;
 }
 
-void Plane::setMaxStorate(double maxStorage)
+void Plane::setMaxStorage(double maxStorage)
 {
     this->maxStorage = maxStorage;
 }

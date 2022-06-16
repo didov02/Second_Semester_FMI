@@ -17,7 +17,7 @@ public:
 	void display() const override;
 
 	double getMaxStorage() const;
-	void setMaxStorate(double);
+	void setMaxStorage(double);
 
 	double getMaxAirtime() const;
 	void setMaxAirtime(double);
