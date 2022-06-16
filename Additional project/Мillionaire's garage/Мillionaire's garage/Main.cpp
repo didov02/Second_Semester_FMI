@@ -1,6 +1,9 @@
 #include <iostream>
 #include "String.h"
 #include "VehicleManager.h"
+#include <cstring>
+
+#pragma warning (disable:4996)
 
 const int MAX_SIZE = 50;
 

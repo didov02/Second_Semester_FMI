@@ -2,6 +2,10 @@
 
 WaterVehicle::WaterVehicle()
 {
+	type = VehicleType::Water;
+	length = 0;
+	width = 0;
+	crewSize = 0;
 }
 
 WaterVehicle::WaterVehicle(int maxPassengers, int maxSpeed, const String& name, int year,
