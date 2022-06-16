@@ -8,8 +8,8 @@ WaterVehicle::WaterVehicle()
 	crewSize = 0;
 }
 
-WaterVehicle::WaterVehicle(int maxPassengers, int maxSpeed, const String& name, int year,
-	double length, double width, double crewSize, const String& color, const String& model) : Vehicle(maxPassengers, maxSpeed, name, year)
+WaterVehicle::WaterVehicle(size_t maxPassengers, size_t maxSpeed, const String& name, size_t year,
+	double length, double width, size_t crewSize, const String& color, const String& model) : Vehicle(maxPassengers, maxSpeed, name, year)
 {
 	this->length = length;
 	this->width = width;
@@ -39,12 +39,12 @@ double WaterVehicle::getWidth() const
 	return width;
 }
 
-void WaterVehicle::setCrewSize(double size)
+void WaterVehicle::setCrewSize(size_t size)
 {
 	this->crewSize = size;
 }
 
-double WaterVehicle::getCrewSize() const
+size_t WaterVehicle::getCrewSize() const
 {
 	return crewSize;
 }
