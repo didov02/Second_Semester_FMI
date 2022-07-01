@@ -1,20 +1,26 @@
 #pragma once
 #include "Shape.h"
 
-class Rectangle : public Shape
+class Triangle : public Shape
 {
 private:
 	double a;
 	double b;
+	double c;
+	double degreesInSin;
 public:
-	Rectangle();
-	Rectangle(const Point&, char*, double, double);
-
+	Triangle();
+	Triangle(const Point&, char*, double, double, double, double);
+	
 	void setA(double);
 	void setB(double);
+	void setC(double);
+	void setDegreesInSin(double);
 
 	double getA() const;
 	double getB() const;
+	double getC() const;
+	double getDegreesInSin() const;
 
 	Shape* clone() const override;
 	void displayArea() const override;
