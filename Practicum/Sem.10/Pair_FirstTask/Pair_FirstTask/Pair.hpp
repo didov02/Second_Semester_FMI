@@ -13,13 +13,13 @@ public:
 	bool operator==(const Pair&);
 	bool operator!=(const Pair&);
 
-	T getFirstElement() const;
-	T getSecondElement() const;
+	const T& getFirstElement() const;
+	const T& getSecondElement() const;
 
 	void setFirstElement(const T&);
 	void setSecondElement(const T&);
 
-	T getMaxElement() const;
+	const T& getMaxElement() const;
 };
 
 template<typename T>
@@ -48,13 +48,13 @@ bool Pair<T>::operator!=(const Pair& other)
 }
 
 template<typename T>
-T Pair<T>::getFirstElement() const
+const T& Pair<T>::getFirstElement() const
 {
 	return firstElement;
 }
 
 template<typename T>
-T Pair<T>::getSecondElement() const
+const T& Pair<T>::getSecondElement() const
 {
 	return secondElement;
 }
@@ -72,7 +72,7 @@ void Pair<T>::setSecondElement(const T& element)
 }
 
 template<typename T>
-T Pair<T>::getMaxElement() const
+const T& Pair<T>::getMaxElement() const
 {
 	if (firstElement > secondElement)
 		return firstElement;
