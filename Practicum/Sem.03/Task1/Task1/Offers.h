@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <cstring>
 
 #pragma warning (disable:4996)
@@ -26,6 +27,8 @@ public:
 	size_t getProgramersCount() const;
 	size_t getDaysOff() const;
 	double getPayment() const;
+
+	void print() const;
 private:
 	void copy(const Offers&);
 	void free();

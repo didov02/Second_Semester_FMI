@@ -96,3 +96,11 @@ double Offers::getPayment() const
 {
 	return payment;
 }
+
+void Offers::print() const
+{
+	std::cout << "Company's name: " << name << std::endl;
+	std::cout << "Programers in this company: " << programersCount << std::endl;
+	std::cout << "Days off: " << daysOff << std::endl;
+	std::cout << "Payment: " << payment << "lv." << std::endl << std::endl;
+}
