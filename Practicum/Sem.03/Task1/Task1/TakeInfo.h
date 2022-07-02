@@ -3,4 +3,4 @@
 
 size_t getFileSize(std::ifstream& f);
 
-void takeInfoFromFile(std::ifstream& inFile, OffersCollector offers);
+void takeInfoFromFile(std::ifstream& inFile, OffersCollector& offers);

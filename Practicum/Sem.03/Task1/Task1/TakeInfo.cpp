@@ -10,7 +10,7 @@ size_t getFileSize(std::ifstream& f)
 	return size;
 }
 
-void takeInfoFromFile(std::ifstream& inFile, OffersCollector offers)
+void takeInfoFromFile(std::ifstream& inFile, OffersCollector& offers)
 {
 	size_t sizeOfFile = getFileSize(inFile);
 	size_t offersCount = sizeOfFile / sizeof(Offers);
