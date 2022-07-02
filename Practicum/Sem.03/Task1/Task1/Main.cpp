@@ -1,4 +1,5 @@
 #include "OffersCollector.h"
+#include "TakeInfo.h"
 
 const int MAX_SYMBOLS = 25;
 
@@ -15,7 +16,13 @@ int main()
 {
 	bool quit = false;
 
+	std::ifstream file("Data.dat");
+
 	OffersCollector list;
+
+	takeInfoFromFile(file, list);
+
+	file.close();
 
 	while (!quit)
 	{
@@ -79,6 +86,12 @@ int main()
 		{
 			std::cout << "Have a nice day! Goodbye!" << std::endl;
 			quit = true;
+
+			std::ofstream file("Data.dat", std::ios::trunc);
+
+			list.saveToFile(file);
+
+			file.close();
 		}
 	}
 }

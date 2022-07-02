@@ -97,3 +97,21 @@ void OffersCollector::printOffersWithGreaterPayment(double wantedPayment) const
 		}
 	}
 }
+
+void OffersCollector::saveToFile(std::ofstream& outFile)
+{
+	for (int i = 0; i < size; i++)
+	{
+		size_t nameLen = strlen(offers[i].getName());
+		outFile.write((const char*)&nameLen, sizeof(nameLen));
+		outFile.write(offers[i].getName(), sizeof(offers[i].getName()));
+		
+		size_t programersCount = offers[i].getProgramersCount();
+		size_t daysOff = offers[i].getDaysOff();
+		double payment = offers[i].getPayment();
+
+		outFile.write((const char*)&programersCount, sizeof(programersCount));
+		outFile.write((const char*)&daysOff, sizeof(daysOff));
+		outFile.write((const char*)&payment, sizeof(payment));
+	}
+}

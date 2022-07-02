@@ -1,5 +1,6 @@
 #pragma once
 #include "Offers.h"
+#include <fstream>
 
 class OffersCollector
 {
@@ -17,6 +18,8 @@ public:
 	void showAllOffers() const;
 	bool firmExisting(char*) const;
 	void printOffersWithGreaterPayment(double) const;
+
+	void saveToFile(std::ofstream& outFile);
 private:
 	void copy(const OffersCollector&);
 	void free();
